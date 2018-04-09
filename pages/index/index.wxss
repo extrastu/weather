@@ -9,7 +9,7 @@ page{
     overflow: hidden;
 }
 .weather_head{
-    height: 700rpx;
+    height: 650rpx;
     width: 100%;
     background: #fff;
     padding-top: 50rpx;
@@ -38,6 +38,7 @@ page{
 }
 .fff{
     background: #fff;
+    box-shadow: 10rpx 10rpx 10rpx lightgray;
 }
 .weather_body .weather_list .img{
     text-align: center;
@@ -49,10 +50,49 @@ page{
     line-height: 104rpx;
     text-align: left;
     font-size: 26rpx;
+    margin: 0 30rpx;
 }
 .fl{
     float: left;
 }
 .fr{
     float: right;
+}
+.current_weath{
+    left:0;
+    top: -80%;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+.words{
+    position: relative;
+    top:21%;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+.weahead{
+    text-align: center; 
+    height: 600rpx;   
+}
+.bg-blur {
+    float: left;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
+    }
+
+.weabody{
+    position:absolute;
+    left: 10px;
+    right: 10px;
+    height:600px;
+    text-align: center;
 }

@@ -1,1 +1,6 @@
-{}
+{
+   
+    "navigationBarTitleText": "每天",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh":true
+}
