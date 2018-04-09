@@ -1,0 +1,58 @@
+@import "../../app.wxss";
+page{
+      background: #ebebeb;
+}
+.weather{
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    overflow: hidden;
+}
+.weather_head{
+    height: 700rpx;
+    width: 100%;
+    background: #fff;
+    padding-top: 50rpx;
+}
+
+.weather_head .weatherDesc,.weather_head .temperature,.weather_head .city{
+    color: #fff;
+    text-align: center;
+    margin: 10rpx 0;
+    font-weight: bold;
+}
+.weather_head .temperature{
+    font-size: 155rpx;
+}
+.weather_body{
+    height: 600rpx;
+    width: 100%;
+    background: #ebebeb;
+}
+.weather_body .weather_list{
+    width: 90%;
+    height: 104rpx;
+    border-radius: 15rpx;
+    margin: 20rpx auto;
+    overflow: hidden;
+}
+.fff{
+    background: #fff;
+}
+.weather_body .weather_list .img{
+    text-align: center;
+    line-height:104rpx;
+    margin: 0 20rpx;
+}
+.weather_body .weather_list .text{
+    color:#000;
+    line-height: 104rpx;
+    text-align: left;
+    font-size: 26rpx;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}

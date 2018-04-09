@@ -1,0 +1,64 @@
+<!-- index.wxml -->
+<view class="weather">
+  <view class='weather_head' style="background-image: url('http://oz53lzns9.bkt.clouddn.com/18-4-9/2511297.jpg');background-size:100%;">
+        <view class='weatherDesc'>
+            {{weatherDesc}}
+        </view>
+        <view class='temperature'>
+            {{temperature}}
+        </view>
+        <view class='city'>
+            <text style='margin-right:10rpx;'>{{currentCity}}</text>
+            <text class=' fa fa-location-arrow'></text>
+        </view>
+  </view>
+  <view class='weather_body'>
+    <!-- <text>{{weatherData}}</text> -->
+    <!-- <view class='weather_list fff' wx:for="{{nextDay}}">
+        <view class='img fl'>
+            <image src='{{item.dayPictureUrl}}'style="width:50rpx;height:50rpx;display: inline-block; vertical-align: middle;"></image>
+        </view>
+        <view class='text'>
+            {{item.date}}
+        </view>
+    </view> -->
+     <view class='weather_list fff' >
+        <view class='img fl'>
+            <image src='{{nextDay[0].dayPictureUrl}}'style="width:50rpx;height:50rpx;display: inline-block; vertical-align: middle;"></image>
+        </view>
+        <view class='text'>
+            {{firstDay}}
+        </view>
+        <view class='text'>
+            {{nextDay[0].weather}}
+        </view>
+        <view class='text'>
+             {{nextDay[0].wind}}
+        </view>
+    </view>
+    <view class='weather_list ' >
+        <view class='img fl'>
+            <image src='{{nextDay[1].dayPictureUrl}}'style="width:50rpx;height:50rpx;display: inline-block; vertical-align: middle;"></image>
+        </view>
+        <view class='text'>
+            {{nextDay[1].date}}
+        </view>
+    </view>
+    <view class='weather_list ' >
+        <view class='img fl'>
+            <image src='{{nextDay[2].dayPictureUrl}}'style="width:50rpx;height:50rpx;display: inline-block; vertical-align: middle;"></image>
+        </view>
+        <view class='text'>
+            {{nextDay[2].date}}
+        </view>
+    </view>
+    <view class='weather_list ' >
+        <view class='img fl'>
+            <image src='{{nextDay[3].dayPictureUrl}}'style="width:50rpx;height:50rpx;display: inline-block; vertical-align: middle;"></image>
+        </view>
+        <view class='text'>
+            {{nextDay[3].date}}
+        </view>
+    </view>
+  </view>
+</view>
