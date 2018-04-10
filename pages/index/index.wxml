@@ -1,9 +1,9 @@
 <!-- index.wxml -->
 <view class="weather">
   <view class='weather_head'>
-    <view class='weahead bg-blur' style="background-image: url('{{urls}}');background-size:100%;"></view>
+    <view class='weahead bg-blur' style="background-image: url('{{urls}}');background-size:cover;"></view>
      <view class='weabody'>
-                <view wx:if="{{sunny}}" class='sunny current_weath'></view>
+        <view wx:if="{{sunny}}" class='sunny current_weath'></view>
         <view wx:if="{{cloudy}}" class="cloudy current_weath"></view>
         <view wx:if="{{rainy}}" class="rainy current_weath"></view>
 
@@ -25,9 +25,12 @@
                     <text style='margin-right:10rpx;'>{{currentCity}}</text>
                     <text class=' fa fa-location-arrow'></text>
                 </view>
-                
         </view>
      </view>
+    <view class="raise" bindtap="bindViewPic">
+        <text class='fa fa-heart'> </text>
+        撩一哈
+    </view>
   </view>
   <view class='weather_body'>
     <!-- <text>{{weatherData}}</text> -->
@@ -40,10 +43,10 @@
         </view>
     </view> -->
     <!-- //因为数据格式问题，只好不循环 -->
-    <view class='weather_list fff'>
+    <view class='weather_list clearfix fff'>
            <view class='text'><text class='fa fa-calendar-times-o'> </text> {{date}}</view>
     </view>
-     <view class='weather_list fff'  >
+     <view class='weather_list clearfix fff'  >
         <view class='img fl'>
             <image src='{{nextDay[0].dayPictureUrl}}'style="width:50rpx;height:50rpx;display: inline-block; vertical-align: middle;"></image>
         </view>
@@ -61,7 +64,7 @@
              {{nextDay[0].wind}}
         </view>
     </view>
-    <view class='weather_list ' >
+    <view class='weather_list clearfix ' >
         <view class='img fl'>
             <image src='{{nextDay[1].dayPictureUrl}}'style="width:50rpx;height:50rpx;display: inline-block; vertical-align: middle;"></image>
         </view>
@@ -79,7 +82,7 @@
              {{nextDay[1].wind}}
         </view>
     </view>
-    <view class='weather_list ' >
+    <view class='weather_list clearfix ' >
         <view class='img fl'>
             <image src='{{nextDay[2].dayPictureUrl}}'style="width:50rpx;height:50rpx;display: inline-block; vertical-align: middle;"></image>
         </view>
@@ -97,7 +100,7 @@
              {{nextDay[2].wind}}
         </view>
     </view>
-    <view class='weather_list ' >
+    <view class='weather_list clearfix ' >
         <view class='img fl'>
             <image src='{{nextDay[3].dayPictureUrl}}'style="width:50rpx;height:50rpx;display: inline-block; vertical-align: middle;"></image>
         </view>
@@ -113,6 +116,13 @@
          <text class='fa fa-tree'>
          </text>
              {{nextDay[3].wind}}
+        </view>
+    </view>
+    <view class='weather_list clearfix fff ' bindtap='uploadImg' >
+         <view class='text fr' >
+            <text class='fa fa-upload'>
+            </text>
+             上传 
         </view>
     </view>
   </view>

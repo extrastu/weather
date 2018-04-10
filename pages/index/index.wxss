@@ -34,7 +34,7 @@ page{
     height: 104rpx;
     border-radius: 15rpx;
     margin: 20rpx auto;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .fff{
     background: #fff;
@@ -64,6 +64,7 @@ page{
     bottom: 0;
     right: 0;
     margin: auto;
+    margin-left: 35%;
 }
 .words{
     position: relative;
@@ -95,4 +96,33 @@ page{
     right: 10px;
     height:600px;
     text-align: center;
+}
+/* 撩一哈 */
+.raise{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    bottom: 0px;
+    width:80px;
+    height: 30px;
+    border-radius: 13px;
+    box-shadow: 3px 3px 3px lightgray;
+    color: grey;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.clearfix:after{
+    content:"";
+    height:0;
+    line-height:0;
+    display:block;
+    visibility:hidden;
+    clear:both;
+}
+
+.clearfix{
+    zoom:1;
 }

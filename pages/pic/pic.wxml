@@ -1,0 +1,21 @@
+<!-- pic.wxml -->
+ <view class='wallpaper'>
+    <view class='wallpaperList' wx:for="{{wallpaper}}" wx:key="index">
+        <image src='{{item.urls}}' data-index="{{ index }}" bindtap='previewImg' data-src="{{item.urls}}" ></image>
+    </view>
+    <!-- 加载提示 -->
+     <block wx:if="{{isloading}}">
+            <view class="weui-loadmore">
+                  <view class="weui-loading"></view>
+                  <view class="weui-loadmore__tips">正在加载</view>
+            </view>
+      </block>  
+      <!-- 加载完所有数据 -->
+       <block wx:if="{{isReachEnd}}">
+            <view>
+                  <view>暂无更多了</view>
+            </view>
+      </block> 
+</view> 
+
+

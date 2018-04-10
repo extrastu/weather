@@ -1,8 +1,7 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/time/time"
+    "pages/pic/pic"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -10,4 +9,5 @@
     "navigationBarTitleText": "每天",
     "navigationBarTextStyle":"black"
   }
+
 }

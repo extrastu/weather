@@ -1,0 +1,15 @@
+page{
+      background: #ebebeb;
+}
+.wallpaperList{
+    text-align: center;
+    width: 50%;
+    height: 350px;
+    display: inline-block;
+    vertical-align: top;
+}
+.wallpaperList image{
+    width: 95%;
+    height: 95%;
+    background-size: cover;
+}
