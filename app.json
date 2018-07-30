@@ -1,13 +1,13 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/pic/pic"
+  "pages": [
+    "pages/pic/pic",
+    "pages/index/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "每天",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 
 }
