@@ -7,7 +7,7 @@
   <i-panel title="常见颜色">
     <i-panel>
       <i-radio-group current="{{current}}" bindchange="handleFruitChange">
-        <i-radio wx:for="{{colors}}" checked="{{checked}}" color="{{item.color}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.color}}"></i-radio>
+        <i-radio wx:for="{{colors}}" checked="{{checked}}" color="{{item.color}}" position="right" wx:key="{{item.id}}" value="{{item.color}}"></i-radio>
       </i-radio-group>
     </i-panel>
   </i-panel>

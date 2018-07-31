@@ -5,7 +5,7 @@
   <i-panel title="显示">
     <i-cell-group>
       <i-cell title="首页逆序显示">
-        <switch slot="footer" disabled="{{true}}" />
+        <switch slot="footer" disabled="{{true}}" icon="browse_fill" />
       </i-cell>
     </i-cell-group>
     <i-cell-group>

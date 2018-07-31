@@ -48,7 +48,6 @@ Page({
       color: 'brown'
     }],
     current: '黑色',
-    position: 'left',
     animal: '熊猫',
     checked: false,
     disabled: false,
@@ -59,37 +58,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this;
-    wx.getStorage({
-      key: 'skins',
-      success: function (res) {
-        console.log(res.data)
-        if (res.data == "black") {
-          that.current = "黑色"
-        } else if (res.data == 'purple') {
-          that.current = "紫色"
-        } else if (res.data == 'blue') {
-          that.current = "蓝色"
-        } else if (res.data == 'pink') {
-          that.current = "粉色"
-        } else if (res.data == 'white') {
-          that.current = "白色"
-        } else if (res.data == 'red') {
-          that.current = "红色"
-        } else if (res.data == 'yellow') {
-          that.current = "黄色"
-        } else if (res.data == 'green') {
-          that.current = "绿色"
-        } else if (res.data == 'grey') {
-          that.current = "灰色"
-        } else if (res.data == 'brown') {
-          that.current = "棕色"
-        }
-        that.setData({
-          SkinStyle: res.data
-        })
-      },
-    })
 
   },
 
@@ -104,37 +72,69 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let that = this;
+    var that = this;
     wx.getStorage({
       key: 'skins',
       success: function (res) {
         console.log(res.data)
         if (res.data == "black") {
-          that.current = "黑色"
+          console.log("选中黑色========")
+          that.setData({
+            current: "黑色"
+          })
         } else if (res.data == 'purple') {
-          that.current = "紫色"
+
+          that.setData({
+            current: "紫色"
+          })
         } else if (res.data == 'blue') {
-          that.current = "蓝色"
+
+          that.setData({
+            current: "蓝色"
+          })
         } else if (res.data == 'pink') {
-          that.current = "粉色"
+
+          that.setData({
+            current: "粉色"
+          })
         } else if (res.data == 'white') {
-          that.current = "白色"
+
+          that.setData({
+            current: "白色"
+          })
         } else if (res.data == 'red') {
-          that.current = "红色"
+
+          that.setData({
+            current: "红色"
+          })
         } else if (res.data == 'yellow') {
-          that.current = "黄色"
+
+          that.setData({
+            current: "黄色"
+          })
         } else if (res.data == 'green') {
-          that.current = "绿色"
+
+          that.setData({
+            current: "绿色"
+          })
         } else if (res.data == 'grey') {
-          that.current = "灰色"
+          that.setData({
+            current: "灰色"
+          })
         } else if (res.data == 'brown') {
-          that.current = "棕色"
+          that.setData({
+            current: "棕色"
+          })
         }
+        console.log(that.current + '--------------')
         that.setData({
           SkinStyle: res.data
+          // checked: that.current
         })
+
       },
     })
+
   },
 
   /**
@@ -178,6 +178,7 @@ Page({
     this.setData({
       checked: detail.current
     });
+
   },
   handleFruitChange({
     detail = {}
