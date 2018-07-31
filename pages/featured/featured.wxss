@@ -1,0 +1,35 @@
+#topic {
+  width: 90%;
+  height: 300rpx;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  color: #fff;
+  background: #fff;
+  line-height: 300rpx;
+  font-size: 30px;
+  text-align: center;
+  box-shadow: 1px 2px 3px #f1f1f1;
+}
+
+.topic image {
+  width: 100%;
+  background-size: cover;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.blue {
+  background: blue !important;
+  color: #fff !important;
+}
+
+.green {
+  background: green !important;
+  color: #fff !important;
+}
+
+.red {
+  background: red !important;
+  color: #fff !important;
+}

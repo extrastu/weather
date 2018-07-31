@@ -3,7 +3,7 @@
   <view class='weather_head'>
     <view class='weahead bg-blur' style="background-image: url('{{urls}}');background-size:cover;"></view>
      <view class='weabody'>
-        <view wx:if="{{sunny}}" class='sunny current_weath'></view>
+         <view wx:if="{{sunny}}" class='sunny current_weath'></view>
         <view wx:if="{{cloudy}}" class="cloudy current_weath"></view>
         <view wx:if="{{rainy}}" class="rainy current_weath"></view>
 
@@ -13,7 +13,7 @@
 
         <view wx:if="{{starry}}" class="starry current_weath"></view>
 
-        <view wx:if="{{stormy}}" class="stormy current_weath"></view>
+        <view wx:if="{{stormy}}" class="stormy current_weath"></view> 
         <view class='words'>
               <view class='weatherDesc'>
                     {{weatherDesc}}
@@ -28,7 +28,7 @@
         </view>
      </view>
     <view class="raise" bindtap="bindViewPic">
-        <text class='fa fa-heart'> </text>
+        <text class='fa fa-heart' style='color:grey;font-size:14px; '> </text>
         撩一哈
     </view>
   </view>
@@ -126,4 +126,5 @@
         </view>
     </view>
   </view>
+  
 </view>

@@ -1,0 +1,19 @@
+<view class="process">
+  <view style="width:40%;margin: 0 auto;">
+    <image src="http://oz53lzns9.bkt.clouddn.com/18-7-31/657637.jpg" style="width:100%" mode="widthFix"></image>
+  </view>
+  <i-steps current="{{verticalCurrent}}" direction="vertical">
+    <i-step>
+      <view slot="title">1.0已完成</view>
+      <view slot="content">这个是在小程序刚出来之际,开的一版,后来再也没有去碰了</view>
+    </i-step>
+    <i-step>
+      <view slot="title">2.0</view>
+      <view slot="content">去年秋年再次拾起来了,添加了天气查询</view>
+    </i-step>
+    <i-step>
+      <view slot="title">3.0进行中</view>
+      <view slot="content">经历的2.0的天气,感觉有点喧宾夺主,如是回归本心,重新出发~</view>
+    </i-step>
+  </i-steps>
+</view>

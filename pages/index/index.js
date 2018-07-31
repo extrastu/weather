@@ -73,7 +73,13 @@ Page({
                 that.setData({
                     sunny: true
                 })
-            } else if (data.currentWeather[0].weatherDesc == "多云转阴") {
+            }
+            if (data.currentWeather[0].weatherDesc == "阴转晴") {
+                that.setData({
+                    sunny: true
+                })
+            }
+             else if (data.currentWeather[0].weatherDesc == "多云转阴") {
                 that.setData({
                     cloudy: true
                 })
@@ -95,6 +101,11 @@ Page({
                     cloudy: true
                 })
             } else if (data.currentWeather[0].weatherDesc == "多云") {
+                that.setData({
+                    cloudy: true
+                })
+            }
+            else if (data.currentWeather[0].weatherDesc == "多云转小雨") {
                 that.setData({
                     cloudy: true
                 })
@@ -183,6 +194,11 @@ Page({
                         newPic.set('priority', 1);
                         newPic.save().then(function (data) {
                             console.log( data);
+                            wx.showToast({
+                                title: '主人我更丰满了~',//提示信息
+                                icon: 'success',//成功显示图标
+                                duration: 1000//时间
+                            })
                         }, function (error) {
                             console.error(error);
                         });

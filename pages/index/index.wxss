@@ -12,14 +12,15 @@ page{
     height: 650rpx;
     width: 100%;
     background: #fff;
-    padding-top: 50rpx;
+     padding-top: 50rpx; 
 }
 
 .weather_head .weatherDesc,.weather_head .temperature,.weather_head .city{
-    color: #fff;
+    color: #fff; 
     text-align: center;
     margin: 10rpx 0;
     font-weight: bold;
+    text-shadow:5px 2px 6px #333333; 
 }
 .weather_head .temperature{
     font-size: 155rpx;
@@ -107,13 +108,27 @@ page{
     height: 30px;
     border-radius: 13px;
     box-shadow: 3px 3px 3px lightgray;
-    color: grey;
+    /* color: grey; */
     text-align: center;
     line-height: 30px;
     font-size: 14px;
     cursor: pointer;
+    background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%,
+            #ffd400 40%, #3498db 50%, #f47920 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+    color: transparent; 
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;         
+    background-size: 200% 100%;         
+    animation: masked-animation 4s infinite linear;
 }
-
+@keyframes masked-animation {
+    0% {
+        background-position: 0 0;   /*background-position 属性设置背景图像的起始位置。*/
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
 .clearfix:after{
     content:"";
     height:0;
@@ -125,4 +140,16 @@ page{
 
 .clearfix{
     zoom:1;
+}
+
+.sunny{
+    margin-left:49%;
+
+}
+.upAndDown{
+    width: 100%;
+    height: 300rpx;
+    background: white;
+    z-index: 10;
+    border-radius: 30px 30px 0 0;
 }

@@ -1,0 +1,7 @@
+page {
+  background: #ffffff;
+}
+
+.process {
+  padding: 20px;
+}

@@ -1,0 +1,11 @@
+<view class="info">
+  <view class="title">{{title}}</view>
+  <view class='wallpaperList' wx:for="{{imgArr}}" wx:key="index">
+    <image src='{{item}}' mode="widthFix" data-index="{{index}}" bindtap='previewImg' data-src="{{item}}"></image>
+  </view>
+  <view class='banquan'>
+    <view class="footer">本项目由张益达同学开发,张益达同学维护</view>
+    <view class="footer">如收录图片的作者有版权亦有其他问题,</view>
+    <view class="footer">请及时与张益达同学联系,张益达同学将会在第一时间内删除.</view>
+  </view>
+</view>

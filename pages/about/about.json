@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "关于我",
+  "navigationBarTextStyle": "light",
+  "navigationBarBackgroundColor": "#2c2c2c",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "i-input": "../../dist/input/index",
+    "i-button": "../../dist/button/index",
+    "i-toast": "../../dist/toast/index"
+  }
+}

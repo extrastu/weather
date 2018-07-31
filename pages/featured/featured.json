@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "每图",
+  "navigationBarTextStyle": "light",
+  "navigationBarBackgroundColor": "#2c2c2c",
+  "enablePullDownRefresh": true
+}

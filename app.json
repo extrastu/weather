@@ -1,13 +1,38 @@
 {
   "pages": [
     "pages/pic/pic",
-    "pages/index/index"
+    "pages/setting/setting",
+    "pages/featured/featured",
+    "pages/info/info",
+    "pages/about/about",
+    "pages/update/update",
+    "pages/theme/theme"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "每天",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#2c2c2c",
+    "navigationBarTitleText": "每图",
+    "navigationBarTextStyle": "light",
+    "backgroundColor": "#2c2c2c"
+  },
+  "tabBar": {
+    "backgroundColor": "#2c2c2c",
+    "color": "#fff",
+    "list": [{
+      "pagePath": "pages/pic/pic",
+      "text": "首页",
+      "iconPath": "./images/icon-un-home.png",
+      "selectedIconPath": "./images/icon-white-home.png"
+    }, {
+      "pagePath": "pages/featured/featured",
+      "text": "精选",
+      "iconPath": "./images/icon-un-jx.png",
+      "selectedIconPath": "./images/icon-white-jx.png"
+    }, {
+      "pagePath": "pages/setting/setting",
+      "text": "设置",
+      "iconPath": "./images/icon-un-aboutme.png",
+      "selectedIconPath": "images/icon-white-aboutme.png"
+    }]
   }
-
 }

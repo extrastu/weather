@@ -1,0 +1,14 @@
+page {
+  background: #ffffff;
+}
+
+.footer {
+  text-align: center;
+  width: 100%;
+  color: grey;
+  font-size: 12px;
+  line-height: 25px;
+}
+.banquan{
+    margin: 30px 0;
+}

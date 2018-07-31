@@ -1,5 +1,9 @@
 {
     "navigationBarTitleText": "每图",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "navigationBarTextStyle": "light",
+    "navigationBarBackgroundColor": "#2c2c2c",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "i-spin": "../../dist/spin/index"
+    }
 }

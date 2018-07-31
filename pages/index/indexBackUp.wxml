@@ -1,0 +1,130 @@
+<!-- index.wxml -->
+<view class="weather">
+  <view class='weather_head'>
+    <view class='weahead bg-blur' style="background-image: url('{{urls}}');background-size:cover;"></view>
+     <view class='weabody'>
+        <view wx:if="{{sunny}}" class='sunny current_weath'></view>
+        <view wx:if="{{cloudy}}" class="cloudy current_weath"></view>
+        <view wx:if="{{rainy}}" class="rainy current_weath"></view>
+
+        <view wx:if="{{snowy}}" class="snowy current_weath"></view>
+
+        <view wx:if="{{rainbow}}" class="rainbow current_weath"></view>
+
+        <view wx:if="{{starry}}" class="starry current_weath"></view>
+
+        <view wx:if="{{stormy}}" class="stormy current_weath"></view>
+        <view class='words'>
+              <view class='weatherDesc'>
+                    {{weatherDesc}}
+                </view>
+                <view class='temperature'>
+                    {{temperature}}
+                </view>
+                <view class='city'>
+                    <text style='margin-right:10rpx;'>{{currentCity}}</text>
+                    <text class=' fa fa-location-arrow'></text>
+                </view>
+        </view>
+     </view>
+    <view class="raise" bindtap="bindViewPic">
+        <text class='fa fa-heart'> </text>
+        撩一哈
+    </view>
+  </view>
+  <view class='weather_body'>
+    <!-- <text>{{weatherData}}</text> -->
+    <!-- <view class='weather_list fff' wx:for="{{nextDay}}">
+        <view class='img fl'>
+            <image src='{{item.dayPictureUrl}}'style="width:50rpx;height:50rpx;display: inline-block; vertical-align: middle;"></image>
+        </view>
+        <view class='text'>
+            {{item.date}}
+        </view>
+    </view> -->
+    <!-- //因为数据格式问题，只好不循环 -->
+    <view class='weather_list clearfix fff'>
+           <view class='text'><text class='fa fa-calendar-times-o'> </text> {{date}}</view>
+    </view>
+     <view class='weather_list clearfix fff'  >
+        <view class='img fl'>
+            <image src='{{nextDay[0].dayPictureUrl}}'style="width:50rpx;height:50rpx;display: inline-block; vertical-align: middle;"></image>
+        </view>
+        <view class='text fl'>
+            {{firstDay}}
+        </view>
+        <view class='text fr ' >
+            <text class='fa fa-thermometer-1'>
+            </text>
+            {{nextDay[0].weather}}
+        </view>
+        <view class='text fr'>
+         <text class='fa fa-tree'>
+         </text>
+             {{nextDay[0].wind}}
+        </view>
+    </view>
+    <view class='weather_list clearfix ' >
+        <view class='img fl'>
+            <image src='{{nextDay[1].dayPictureUrl}}'style="width:50rpx;height:50rpx;display: inline-block; vertical-align: middle;"></image>
+        </view>
+        <view class='text fl'>
+            {{nextDay[1].date}}
+        </view>
+         <view class='text fr ' >
+            <text class='fa fa-thermometer-1'>
+            </text>
+            {{nextDay[1].weather}}
+        </view>
+        <view class='text fr'>
+         <text class='fa fa-tree'>
+         </text>
+             {{nextDay[1].wind}}
+        </view>
+    </view>
+    <view class='weather_list clearfix ' >
+        <view class='img fl'>
+            <image src='{{nextDay[2].dayPictureUrl}}'style="width:50rpx;height:50rpx;display: inline-block; vertical-align: middle;"></image>
+        </view>
+        <view class='text fl'>
+            {{nextDay[2].date}}
+        </view>
+         <view class='text fr ' >
+            <text class='fa fa-thermometer-1'>
+            </text>
+            {{nextDay[2].weather}}
+        </view>
+        <view class='text fr'>
+         <text class='fa fa-tree'>
+         </text>
+             {{nextDay[2].wind}}
+        </view>
+    </view>
+    <view class='weather_list clearfix ' >
+        <view class='img fl'>
+            <image src='{{nextDay[3].dayPictureUrl}}'style="width:50rpx;height:50rpx;display: inline-block; vertical-align: middle;"></image>
+        </view>
+        <view class='text fl'>
+            {{nextDay[3].date}}
+        </view>
+         <view class='text fr ' >
+            <text class='fa fa-thermometer-1'>
+            </text>
+            {{nextDay[3].weather}}
+        </view>
+        <view class='text fr'>
+         <text class='fa fa-tree'>
+         </text>
+             {{nextDay[3].wind}}
+        </view>
+    </view>
+    <view class='weather_list clearfix fff ' bindtap='uploadImg' >
+         <view class='text fr' >
+            <text class='fa fa-upload'>
+            </text>
+             上传 
+        </view>
+    </view>
+  </view>
+  
+</view>
