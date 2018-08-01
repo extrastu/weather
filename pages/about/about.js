@@ -97,30 +97,6 @@ Page({
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success: function (res) {
-        //上传单个
-        // var tempFilePath = res.tempFilePaths[0];
-        // new AV.File('file-name', {
-        //     blob: {
-        //         uri: tempFilePath,
-        //     },
-        // }).save().then(
-        //     file => {
-        //         console.log(file.url());
-        //         var pic = AV.Object.extend('pic');
-        //         // 新建对象
-        //         var newPic = new pic();
-        //         // 设置名称
-        //         newPic.set('urls', file.url() );
-        //         // 设置优先级
-        //         newPic.set('priority', 1);
-        //         newPic.save().then(function (data) {
-        //             console.log('objectId is ' + data);
-        //         }, function (error) {
-        //             console.error(error);
-        //         });
-        //     }
-
-        //     ).catch(console.error);
         res.tempFilePaths.map(tempFilePath => () => new AV.File('filename', {
           blob: {
             uri: tempFilePath,

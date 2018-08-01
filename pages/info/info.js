@@ -24,7 +24,7 @@ Page({
       title: object.types,
       des: object.des,
       author: object.author,
-      pushTime: object.updateTime.slice(0, 9),
+      pushTime: object.updateTime.slice(0, 10),
       tags: object.tags
     });
   },

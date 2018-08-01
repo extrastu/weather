@@ -8,9 +8,10 @@
         <view class="tool">
             <i-icon type="like_fill" size="28" color='{{item.likes !="0"?"red":"white"}}' id="{{item.objectId}}" style="margin-right:10px;margin-left:10px;" bindtap='likeThis' />
             <i-icon type="flashlight_fill" size="28" color="white" style="margin-right:10px;margin-left:5px;" data-src="{{item.urls}}" bindtap='downloadThis' />
-            <i-tag wx:for="{{item.tags}}" wx:key="{{index}}" wx:for-item="tags" bindchange="onChange" checkable="{{true}}" name="{{index}}" color="{{tags.color}}" checked="{{tags.checked}}" type="border" style="margin-right:5px;">
+            <!-- <i-tag wx:for="{{item.tags}}" wx:key="{{index}}" wx:for-item="tags" color="{{tags.color}}" type="border" style="margin-right:5px;margin-left:15px;">
                 {{tags.name}}
-            </i-tag>
+            </i-tag> -->
+            <i-tag type="border" style="margin-right:5px;margin-left:5px;">{{item.type}}</i-tag>
         </view>
     </view>
     <!-- 加载提示 -->
