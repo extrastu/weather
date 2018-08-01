@@ -52,7 +52,7 @@
 
 .wallpaperList .tool {
   position: absolute;
-  bottom: 15rpx;
+  bottom: 35rpx;
   left: 20%;
   margin-left: -40px;
   cursor: pointer;

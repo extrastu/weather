@@ -6,8 +6,11 @@
     <view class='wallpaperList  {{SkinStyle}}' wx:for="{{wallpaper}}" wx:key="index">
         <image src='{{item.urls}}' mode="widthFix" data-index="{{ index }}" bindtap='previewImg' data-src="{{item.urls}}"></image>
         <view class="tool">
-            <i-icon type="like_fill" size="28" color="white" style="margin-right:15px;margin-left:5px;" />
-            <i-icon type="praise" size="28" color="white" style="margin-right:15px;margin-left:5px;" />
+            <i-icon type="like_fill" size="28" color='{{item.likes !="0"?"red":"white"}}' id="{{item.objectId}}" style="margin-right:10px;margin-left:10px;" bindtap='likeThis' />
+            <i-icon type="flashlight_fill" size="28" color="white" style="margin-right:10px;margin-left:5px;" data-src="{{item.urls}}" bindtap='downloadThis' />
+            <i-tag wx:for="{{item.tags}}" wx:key="{{index}}" wx:for-item="tags" bindchange="onChange" checkable="{{true}}" name="{{index}}" color="{{tags.color}}" checked="{{tags.checked}}" type="border" style="margin-right:5px;">
+                {{tags.name}}
+            </i-tag>
         </view>
     </view>
     <!-- 加载提示 -->
@@ -26,4 +29,5 @@
     <view class="container">
         <i-spin fix size="large" fix wx:if="{{ spinShow }}"></i-spin>
     </view>
+    <i-toast id="toast" />
 </view>

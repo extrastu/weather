@@ -4,6 +4,9 @@ AV.init({
     appId: 'j8dr4m11hsN1Hiy1H4h9mEgO-gzGzoHsz',
     appKey: 'O2B4GUr6NxngBuvtKm5BEPfj',
 });
+const {
+    $Toast
+} = require('../../dist/base/index');
 Page({
 
     /**
@@ -17,6 +20,7 @@ Page({
         imgArr: [],
         spinShow: true,
         SkinStyle: ""
+
     },
 
     /**
@@ -123,6 +127,7 @@ Page({
                         isLoading: false,
                         imgArr: that.data.imgArr.concat(imgList),
                         spinShow: false
+
                     });
                 }
 
@@ -152,6 +157,33 @@ Page({
             })
             .catch(console.error);
 
+    },
+    // 点击喜欢
+    likeThis: function (e) {
+        $Toast({
+            content: '感谢你的支持,该功能暂未开放~',
+            icon: 'like_fill'
+        });
+    },
+    //下载壁纸
+    downloadThis: function (e) {
+        console.log(e);
+        $Toast({
+            content: '感谢你的支持,该功能暂未开放~',
+            icon: 'like_fill'
+        });
+        //下载域名暂时没有启用https,因此放弃了
+        // wx.downloadFile({
+        //     url: e.currentTarget.dataset.src, //仅为示例，并非真实的资源
+        //     success: function (res) {
+        //         // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
+        //         if (res.statusCode === 200) {
+        //             wx.playVoice({
+        //                 filePath: res.tempFilePath
+        //             })
+        //         }
+        //     }
+        // })
     },
     // 点击图片进行预览
     previewImg: function (e) {
