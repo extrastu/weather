@@ -1,3 +1,14 @@
+.title {
+  width: 74%;
+  margin: 0 auto;
+  padding-left: 20px;
+  height: 50px;
+  line-height: 50px;
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
 .wallpaper {
   background: #2c2c2c;
 }
@@ -37,6 +48,14 @@
   background-size: cover;
   border-radius: 10px;
   margin: 0 auto;
+}
+
+.wallpaperList .tool {
+  position: absolute;
+  bottom: 15rpx;
+  left: 20%;
+  margin-left: -40px;
+  cursor: pointer;
 }
 
 .wallpaperList .type {

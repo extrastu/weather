@@ -5,7 +5,11 @@ Page({
    */
   data: {
     imgArr: [],
-    title: ""
+    title: "",
+    des: "",
+    author: "",
+    pushTime: "",
+    tags: []
   },
 
   /**
@@ -17,7 +21,11 @@ Page({
     console.log(object);
     this.setData({
       imgArr: object.typeUrls,
-      title: object.types
+      title: object.types,
+      des: object.des,
+      author: object.author,
+      pushTime: object.updateTime.slice(0, 9),
+      tags: object.tags
     });
   },
 

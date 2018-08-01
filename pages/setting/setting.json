@@ -5,5 +5,9 @@
     "i-panel": "../../dist/panel/index",
     "i-icon": "../../dist/icon/index",
     "i-avatar": "../../dist/avatar/index"
-  }
+},
+"navigationBarTitleText": "设置",
+"navigationBarTextStyle": "light",
+"navigationBarBackgroundColor": "#2c2c2c",
+"enablePullDownRefresh": true
 }

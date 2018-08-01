@@ -73,7 +73,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  // 点击图片进行预览
+  // 点击分类进行预览
   previewImg: function (e) {
     console.log(e);
     let data = JSON.stringify(e.currentTarget.dataset.list);
@@ -89,10 +89,14 @@ Page({
       .descending('createdAt').limit(7)
       .find()
       .then(data => {
+        console.log(data);
         for (let i = 0; i < data.length; i++) {
           let object = data[i];
           let res = object._serverData;
-          typeList.push(res)
+          let updatedAt = object.updatedAt;
+          res.updateTime = updatedAt;
+          typeList.push(res);
+
         }
         console.log(typeList)
         wx.hideLoading();

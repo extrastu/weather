@@ -29,7 +29,6 @@ Page({
         wx.getStorage({
             key: 'skins',
             success: function (res) {
-                console.log(res.data)
                 that.setData({
                     SkinStyle: res.data
                 })
@@ -56,7 +55,6 @@ Page({
         wx.getStorage({
             key: 'skins',
             success: function (res) {
-                console.log(res.data)
                 that.setData({
                     SkinStyle: res.data
                 })

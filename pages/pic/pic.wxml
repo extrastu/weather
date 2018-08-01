@@ -1,7 +1,14 @@
 <!-- pic.wxml -->
 <view class='wallpaper  {{SkinStyle}}'>
+    <!-- <view class='title' style='margin-top:20px;'>
+    每图
+    </view> -->
     <view class='wallpaperList  {{SkinStyle}}' wx:for="{{wallpaper}}" wx:key="index">
         <image src='{{item.urls}}' mode="widthFix" data-index="{{ index }}" bindtap='previewImg' data-src="{{item.urls}}"></image>
+        <view class="tool">
+            <i-icon type="like_fill" size="28" color="white" style="margin-right:15px;margin-left:5px;" />
+            <i-icon type="praise" size="28" color="white" style="margin-right:15px;margin-left:5px;" />
+        </view>
     </view>
     <!-- 加载提示 -->
     <block wx:if="{{isloading}}">
