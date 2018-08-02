@@ -74,7 +74,8 @@ Page({
 
   },
   // 提交密码
-  handleClick: function () {
+  handleClick: function (e) {
+    console.log(e)
     let that = this;
     if (that.password == "1007") {
       that.setData({

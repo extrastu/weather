@@ -1,4 +1,5 @@
 var app = getApp();
+var AV = require('../../utils/av-live-query-weapp-min');
 Page({
 
   /**
@@ -46,7 +47,7 @@ Page({
           // 成功，此时可在控制台中看到更新后的用户信息
           this.globalData.user = user.toJSON();
           this.setData({
-            role: user.toJSON().role
+            role: user.toJSON.role
           })
         }).catch(console.error);
       }

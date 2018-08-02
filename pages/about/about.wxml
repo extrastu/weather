@@ -4,9 +4,8 @@
   <view>我@纸短情长酋长.你可以在微博上关注我,也可以访问我的主页blog.extarstu.xin</view>
   <view>如果你对每图有意见,可以extrastu888#gmail.com,发邮件给我</view>
   <i-panel title="开启新大陆">
-    <i-input value="{{password}}" placeholder="请输入新大陆密码" />
+    <i-input value="{{password}}" placeholder="请输入新大陆密码" bind:change="handleClick" />
   </i-panel>
-  <i-button bind:click="handleClick" type="success">提交</i-button>
   <view class='uploadImg' bindtap='uploadImg' wx:if="{{ show }}">
     <text class='fa fa-upload'></text>
     上传

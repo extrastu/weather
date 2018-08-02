@@ -70,4 +70,5 @@ Page({
       'current': current
     })
   }
+
 })

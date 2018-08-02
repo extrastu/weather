@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    type: "自由女神像"
+    type: ""
   },
 
   /**
@@ -63,11 +63,22 @@ Page({
   onShareAppMessage: function () {
 
   },
+  // 保存提交数据
+  save() {
+    console.log(this.data.type)
+  },
+  //当input失去焦点时,赋值
+  changeVal: function (e) {
+    console.log(e);
+    console.log(e.detail.detail.value);
+    this.setData({
+      type: e.detail.detail.value
+    })
+  },
   //上传图片并更新到数据库
   uploadImg: function () {
-    let that = this;
-    let types = that.type;
-    console.log(types)
+    console.log(this.data.type)
+    let types = this.data.type;
     wx.chooseImage({
       count: 9,
       sizeType: ['original', 'compressed'],
@@ -89,7 +100,7 @@ Page({
           // 设置名称
           newPic.set('urls', file.url());
           console.log(types)
-          newPic.set('type', types);
+          newPic.set('type',types);
           // 设置优先级
           newPic.set('priority', 1);
           newPic.save().then(function (data) {
