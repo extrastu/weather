@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    SkinStyle: '',
     colors: [{
       id: 1,
       name: '蓝色',
@@ -73,6 +73,14 @@ Page({
    */
   onShow: function () {
     var that = this;
+    wx.getStorage({
+      key: 'skins',
+      success: function (res) {
+        that.setData({
+          SkinStyle: res.data
+        })
+      }
+    })
     wx.getStorage({
       key: 'skins',
       success: function (res) {

@@ -1,9 +1,6 @@
 const AV = require('../../utils/av-live-query-weapp-min')
 const LIMIT = 7
-AV.init({
-    appId: 'j8dr4m11hsN1Hiy1H4h9mEgO-gzGzoHsz',
-    appKey: 'O2B4GUr6NxngBuvtKm5BEPfj'
-})
+
 const {
     $Toast
 } = require('../../dist/base/index')
@@ -25,16 +22,20 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        // this.fetchPhotos()
-        // let that = this
-        // wx.getStorage({
-        //   key: 'skins',
-        //   success: function(res) {
-        //     that.setData({
-        //       SkinStyle: res.data
-        //     })
-        //   }
-        // })
+        const user = AV.User.current();
+        // 调用小程序 API，得到用户信息
+        wx.getUserInfo({
+            success: ({
+                userInfo
+            }) => {
+                // 更新当前用户的信息
+                user.set(userInfo).save().then(user => {
+                    // 成功，此时可在控制台中看到更新后的用户信息
+                    this.globalData.user = user.toJSON();
+                    console.log(user.toJSON())
+                }).catch(console.error);
+            }
+        });
     },
 
     /**
@@ -156,16 +157,29 @@ Page({
     // 点击喜欢
     likeThis: function (e) {
         $Toast({
-            content: '感谢你的支持,该功能暂未开放~'
-            // icon: 'like_fill'
+            content: '感谢你的支持,该功能暂未开放~',
+            icon: 'like_fill'
         })
+        console.log(e)
+        var todo = AV.Object.createWithoutData('pic', e.currentTarget.id);
+        todo.set('views', 0);
+        todo.save().then(function (todo) {
+            todo.increment('views', 1);
+            todo.save(true);
+            // return todo.save();
+        }).then(function (todo) {
+            // 使用了 fetchWhenSave 选项，save 成功之后即可得到最新的 views 值
+            console.log(todo)
+        }, function (error) {
+            // 异常处理
+        });
     },
     //下载壁纸
     downloadThis: function (e) {
         console.log(e)
         $Toast({
-            content: '感谢你的支持,该功能暂未开放~'
-            // icon: 'like_fill'
+            content: '感谢你的支持,该功能暂未开放~',
+            icon: 'like_fill'
         })
         //下载域名暂时没有启用https,因此放弃了
         // wx.downloadFile({

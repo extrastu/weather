@@ -1,11 +1,19 @@
 //app.js
+const AV = require('utils/av-live-query-weapp-min')
+
+AV.init({
+  appId: 'j8dr4m11hsN1Hiy1H4h9mEgO-gzGzoHsz',
+  appKey: 'O2B4GUr6NxngBuvtKm5BEPfj'
+})
 App({
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    AV.User.loginWithWeapp().then(user => {
+      this.globalData.user = user.toJSON();
+    }).catch(console.error);
     // 登录
     wx.login({
       success: res => {

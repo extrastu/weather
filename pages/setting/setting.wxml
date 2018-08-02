@@ -1,38 +1,43 @@
-<view class="setting">
+<view class="setting ">
   <view style="width:30%;margin: 0 auto;">
     <image src="http://oz53lzns9.bkt.clouddn.com/18-7-31/657637.jpg" style="width:100%" mode="widthFix"></image>
   </view>
-  <i-panel title="显示">
-    <i-cell-group>
-      <i-cell title="首页逆序显示">
-        <switch slot="footer" disabled="{{true}}" />
-      </i-cell>
-    </i-cell-group>
-    <i-cell-group>
+  <view class="settings_mb">
+    <i-panel title="显示">
       <i-cell-group>
-        <i-cell title="主题颜色" is-link url="/pages/theme/theme"></i-cell>
+        <i-cell title="首页逆序显示">
+          <switch slot="footer" disabled="{{true}}" />
+        </i-cell>
       </i-cell-group>
-    </i-cell-group>
-  </i-panel>
-  <i-panel title="关于">
-    <i-cell-group>
-      <i-cell title="关于" is-link url="/pages/about/about"></i-cell>
-    </i-cell-group>
-    <i-cell-group>
-      <i-cell title="联系反馈" is-link value="mailTo:extrastu888@gmail.com"></i-cell>
-    </i-cell-group>
-    <i-cell-group>
-      <i-cell title="关注张益达同学" is-link value="blog.extrastu.xin"></i-cell>
-    </i-cell-group>
-  </i-panel>
-  <i-panel title="更新">
-    <i-cell-group>
-      <i-cell title="更新记录" is-link url="/pages/update/update"></i-cell>
-    </i-cell-group>
-  </i-panel>
-  <view class='banquan'>
-    <view class="footer">本项目由张益达同学开发,张益达同学维护</view>
-    <view class="footer">如收录图片的作者有版权亦有其他问题,</view>
-    <view class="footer">请及时与张益达同学联系,张益达同学将会在第一时间内删除.</view>
+      <i-cell-group>
+        <i-cell-group>
+          <i-cell title="主题颜色" is-link url="/pages/theme/theme"></i-cell>
+        </i-cell-group>
+      </i-cell-group>
+    </i-panel>
+    <i-panel title="关于">
+      <i-cell-group>
+        <i-cell title="关于" is-link url="/pages/about/about"></i-cell>
+      </i-cell-group>
+      <i-cell-group class="hidden">
+        <i-cell title="更新数据" is-link url="/pages/upload/upload"></i-cell>
+      </i-cell-group>
+      <i-cell-group>
+        <i-cell title="联系反馈" is-link value="mailTo:extrastu888@gmail.com"></i-cell>
+      </i-cell-group>
+      <i-cell-group>
+        <i-cell title="关注张益达同学" is-link value="blog.extrastu.xin"></i-cell>
+      </i-cell-group>
+    </i-panel>
+    <i-panel title="更新">
+      <i-cell-group>
+        <i-cell title="更新记录" is-link url="/pages/update/update"></i-cell>
+      </i-cell-group>
+    </i-panel>
+    <view class='banquan'>
+      <view class="footer">本项目由张益达同学开发,张益达同学维护</view>
+      <view class="footer">如收录图片的作者有版权亦有其他问题,</view>
+      <view class="footer">请及时与张益达同学联系,张益达同学将会在第一时间内删除.</view>
+    </view>
   </view>
 </view>

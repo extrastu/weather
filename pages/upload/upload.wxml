@@ -1,0 +1,9 @@
+<!-- <i-panel title="上传图片">
+    <i-input value="{{ type }}" title="壁纸类型" autofocus placeholder="壁纸类型" />
+
+    <i-button bind:click="uploadImg" type="success" shape="circle" size="small">小尺寸</i-button>
+</i-panel> -->
+<i-panel title="圆角输入框">
+    <i-input value="{{ type }}"  right type='text' title="壁纸类型" mode="wrapped" placeholder="请输入壁纸类型" />
+       <i-button bind:click="uploadImg" type="success" shape="circle" size="small">小尺寸</i-button>
+</i-panel>

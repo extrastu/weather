@@ -3728,3 +3728,44 @@ page {
 }
 
 /* 效果CSS结束 */
+
+/* 统一背景色 */
+.blue {
+  background: blue !important;
+}
+
+.pink {
+  background: pink !important;
+}
+
+.black {
+  background: #333 !important;
+}
+
+.purple {
+  background: purple !important;
+}
+
+.yellow {
+  background: yellow !important;
+}
+
+.grey {
+  background: grey !important;
+}
+
+.green {
+  background: green !important;
+}
+
+.brown {
+  background: brown !important;
+}
+
+.red {
+  background: red !important;
+}
+
+.white {
+  background: white !important;
+}

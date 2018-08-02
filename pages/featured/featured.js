@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    featured: []
+    featured: [],
+    SkinStyle: "normal"
   },
 
   /**
@@ -31,7 +32,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let that = this
+    wx.getStorage({
+      key: 'skins',
+      success: function (res) {
+        that.setData({
+          SkinStyle: res.data
+        })
+      }
+    })
   },
 
   /**

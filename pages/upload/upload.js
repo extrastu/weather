@@ -1,17 +1,11 @@
-var bmap = require('../../utils/bmap-wx.min.js');
-var network = require('../../utils/network.js');
 var AV = require('../../utils/av-live-query-weapp-min');
-const {
-  $Toast
-} = require('../../dist/base/index');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    show: false,
-    password: ""
+    type: "自由女神像"
   },
 
   /**
@@ -32,9 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // this.setData({
-    //   show: false
-    // })
+
   },
 
   /**
@@ -55,9 +47,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({
-      show: true
-    })
+
   },
 
   /**
@@ -73,25 +63,11 @@ Page({
   onShareAppMessage: function () {
 
   },
-  // 提交密码
-  handleClick: function () {
-    let that = this;
-    if (that.password == "1007") {
-      that.setData({
-        show: true
-      })
-      $Toast({
-        content: '主人,您终于来了~',
-        type: 'success'
-      });
-    } else {
-      $Toast({
-        content: '不要调皮,该功能还么开发完~'
-      });
-    }
-  },
   //上传图片并更新到数据库
   uploadImg: function () {
+    let that = this;
+    let types = that.type;
+    console.log(types)
     wx.chooseImage({
       count: 9,
       sizeType: ['original', 'compressed'],
@@ -112,6 +88,8 @@ Page({
           var newPic = new pic();
           // 设置名称
           newPic.set('urls', file.url());
+          console.log(types)
+          newPic.set('type', types);
           // 设置优先级
           newPic.set('priority', 1);
           newPic.save().then(function (data) {
@@ -127,5 +105,5 @@ Page({
         }))).catch(console.error);
       }
     });
-  },
+  }
 })
