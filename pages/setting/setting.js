@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    SkinStyle: "normal"
+    SkinStyle: "normal",
+    role: ""
   },
 
   /**
@@ -44,6 +45,9 @@ Page({
         user.set(userInfo).save().then(user => {
           // 成功，此时可在控制台中看到更新后的用户信息
           this.globalData.user = user.toJSON();
+          this.setData({
+            role: user.toJSON().role
+          })
         }).catch(console.error);
       }
     });

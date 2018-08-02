@@ -1,5 +1,5 @@
 <view class="featured {{SkinStyle}}">
-  <view class="{{item.colorClass}}" style="background:{{item.colorClass}}" id="topic" wx:for="{{featured}}" data-list="{{item}}" wx:key="index" bindtap='previewImg'>
+  <view class="{{item.colorClass}}" style="background-image:url({{item.typeBgUrl}})" id="topic" wx:for="{{featured}}" data-list="{{item}}" wx:key="index" bindtap='previewImg'>
     {{item.types}}
   </view>
 </view>
