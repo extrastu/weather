@@ -1,6 +1,6 @@
 
 <i-notice-bar icon="systemprompt" closable loop>
-   在预览界面长按保存,然后在系统相册查看与使用
+   在预览界面长按保存,然后在系统相册查看与使用,谢谢您的使用
 </i-notice-bar>
 <view class='img'>
     <image src='{{src}}' mode="widthFix"  bindtap='previewImg' data-src="{{src}}"></image>
