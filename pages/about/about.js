@@ -1,9 +1,4 @@
-var bmap = require('../../utils/bmap-wx.min.js');
-var network = require('../../utils/network.js');
-var AV = require('../../utils/av-live-query-weapp-min');
-const {
-  $Toast
-} = require('../../dist/base/index');
+
 Page({
 
   /**
@@ -72,61 +67,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  // 提交密码
-  handleClick: function (e) {
-    console.log(e)
-    let that = this;
-    if (that.password == "1007") {
-      that.setData({
-        show: true
-      })
-      $Toast({
-        content: '主人,您终于来了~',
-        type: 'success'
-      });
-    } else {
-      $Toast({
-        content: '不要调皮,该功能还么开发完~'
-      });
-    }
-  },
-  //上传图片并更新到数据库
-  uploadImg: function () {
-    wx.chooseImage({
-      count: 9,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success: function (res) {
-        res.tempFilePaths.map(tempFilePath => () => new AV.File('filename', {
-          blob: {
-            uri: tempFilePath,
-          },
-        }).save()).reduce(
-          (m, p) => m.then(v => AV.Promise.all([...v, p()])),
-          AV.Promise.resolve([])
-        ).then(files => console.log(files.map(file => {
-          console.log(file.url());
-          file.url()
-          var pic = AV.Object.extend('pic');
-          // 新建对象
-          var newPic = new pic();
-          // 设置名称
-          newPic.set('urls', file.url());
-          // 设置优先级
-          newPic.set('priority', 1);
-          newPic.save().then(function (data) {
-            console.log(data);
-            wx.showToast({
-              title: '主人我更丰满了~', //提示信息
-              icon: 'success', //成功显示图标
-              duration: 1000 //时间
-            })
-          }, function (error) {
-            console.error(error);
-          });
-        }))).catch(console.error);
-      }
-    });
-  },
+  }
 })

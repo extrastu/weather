@@ -8,5 +8,6 @@
         "i-icon": "../../dist/icon/index",
         "i-toast": "../../dist/toast/index",
         "i-tag": "../../dist/tag/index"
+   
     }
 }

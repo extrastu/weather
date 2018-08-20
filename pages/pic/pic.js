@@ -4,6 +4,7 @@ const LIMIT = 7
 const {
     $Toast
 } = require('../../dist/base/index')
+
 Page({
     /**
      * 页面的初始数据
@@ -183,15 +184,26 @@ Page({
     },
     // 点击图片进行预览
     previewImg: function (e) {
-        console.log(e.currentTarget.dataset.index)
-        var index = e.currentTarget.dataset.index
-        var imgArr = this.data.imgArr
-        wx.previewImage({
-            current: imgArr[index], //当前图片地址
-            urls: imgArr, //所有要预览的图片的地址集合 数组形式
-            success: function (res) {},
-            fail: function (res) {},
-            complete: function (res) {}
+        // $Toast({
+        //     content: '在图片预览界面长按保存,然后在系统相册使用',
+        //     icon: 'like_fill'
+        // })
+      
+
+        // console.log(e.currentTarget.dataset.index)
+        // var index = e.currentTarget.dataset.index
+        // var imgArr = this.data.imgArr
+        // wx.previewImage({
+        //     current: imgArr[index], //当前图片地址
+        //     urls: imgArr, //所有要预览的图片的地址集合 数组形式
+        //     success: function (res) {},
+        //     fail: function (res) {},
+        //     complete: function (res) {}
+        // })
+        console.log(e)
+        let data = JSON.stringify(e.currentTarget.dataset);
+        wx.navigateTo({
+            url: '../this/this?data=' + data
         })
     },
     /**

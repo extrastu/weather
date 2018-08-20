@@ -19,9 +19,9 @@
       <i-cell-group>
         <i-cell title="关于" is-link url="/pages/about/about"></i-cell>
       </i-cell-group>
-      <i-cell-group>
+      <!-- <i-cell-group>
         <i-cell title="更新数据" is-link url="/pages/upload/upload"></i-cell>
-      </i-cell-group>
+      </i-cell-group> -->
       <i-cell-group>
         <i-cell title="联系反馈" is-link value="mailTo:extrastu888@gmail.com"></i-cell>
       </i-cell-group>
@@ -29,11 +29,11 @@
         <i-cell title="关注张益达同学" is-link value="blog.extrastu.xin"></i-cell>
       </i-cell-group>
     </i-panel>
-    <i-panel title="壁纸源">
+    <!-- <i-panel title="壁纸源">
       <i-cell-group>
         <i-cell title="unsplash" is-link url="/pages/type/type"></i-cell>
       </i-cell-group>
-    </i-panel>
+    </i-panel> -->
     <i-panel title="更新">
       <i-cell-group>
         <i-cell title="更新记录" is-link url="/pages/update/update"></i-cell>

@@ -4,13 +4,14 @@
     每图
     </view> -->
     <view class='wallpaperList  {{SkinStyle}}' wx:for="{{wallpaper}}" wx:key="index">
-        <image src='{{item.urls}}' mode="widthFix" data-index="{{ index }}" bindtap='previewImg' data-src="{{item.urls}}"></image>
+        <image src='{{item.urls}}' mode="widthFix" data-index="{{item.views}}" data-id='{{item.objectId}}' bindtap='previewImg' data-src="{{item.urls}}"></image>
         <view class="tool">
             <i-icon type="like_fill" size="28" color='{{item.likes !="0"?"red":"white"}}' id="{{item.objectId}}" style="margin-right:10px;margin-left:10px;" bindtap='likeThis' />
-            <i-icon type="flashlight_fill" size="28" color="white" style="margin-right:10px;margin-left:5px;" data-src="{{item.urls}}" bindtap='downloadThis' />
+            <!-- <i-icon type="flashlight_fill" size="28" color="white" style="margin-right:10px;margin-left:5px;" data-src="{{item.urls}}" bindtap='downloadThis' /> -->
             <!-- <i-tag wx:for="{{item.tags}}" wx:key="{{index}}" wx:for-item="tags" color="{{tags.color}}" type="border" style="margin-right:5px;margin-left:15px;">
                 {{tags.name}}
             </i-tag> -->
+            <i-tag><i-icon type="browse" />{{item.views}}</i-tag>
             <i-tag type="border" style="margin-right:5px;margin-left:5px;">{{item.type}}</i-tag>
         </view>
     </view>

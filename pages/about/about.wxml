@@ -1,14 +1,6 @@
 <view class="about">
-  <view>是一款微信小程序,让你可以在手机上浏览来自世界各地的无版权高清图片</view>
+  <view>每图是一款微信小程序,让你可以在手机上浏览来自世界各地的无版权高清图片</view>
   <view>#每图精选#是由人工精心挑选的无版权壁纸,精心为你准备</view>
   <view>我@纸短情长酋长.你可以在微博上关注我,也可以访问我的主页blog.extarstu.xin</view>
   <view>如果你对每图有意见,可以extrastu888#gmail.com,发邮件给我</view>
-  <!-- <i-panel title="开启新大陆">
-    <i-input value="{{password}}" placeholder="请输入新大陆密码" bind:change="handleClick" />
-  </i-panel> -->
-  <view class='uploadImg' bindtap='uploadImg' wx:if="{{ show }}">
-    <text class='fa fa-upload'></text>
-    上传
-  </view>
-  <i-toast id="toast" />
 </view>

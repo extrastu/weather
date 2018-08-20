@@ -98,7 +98,6 @@ Page({
       .descending('createdAt').limit(7)
       .find()
       .then(data => {
-        console.log(data);
         for (let i = 0; i < data.length; i++) {
           let object = data[i];
           let res = object._serverData;

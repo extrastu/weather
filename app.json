@@ -7,7 +7,8 @@
     "pages/about/about",
     "pages/update/update",
     "pages/theme/theme",
-    "pages/upload/upload"
+    "pages/upload/upload",
+    "pages/this/this"
    
   ],
   "window": {
@@ -19,7 +20,8 @@
   },
   "tabBar": {
     "backgroundColor": "#2c2c2c",
-    "color": "#fff",
+    "color": "#515151",
+    "selectedColor":"#fff",
     "list": [{
       "pagePath": "pages/pic/pic",
       "text": "首页",
@@ -28,13 +30,13 @@
     }, {
       "pagePath": "pages/featured/featured",
       "text": "精选",
-      "iconPath": "./images/icon-un-jx.png",
-      "selectedIconPath": "./images/icon-white-jx.png"
+      "iconPath": "./images/icon-b-jx.png",
+      "selectedIconPath": "./images/icon-w-jx.png"
     }, {
       "pagePath": "pages/setting/setting",
       "text": "设置",
-      "iconPath": "./images/icon-un-aboutme.png",
-      "selectedIconPath": "images/icon-white-aboutme.png"
+      "iconPath": "./images/icon-b-sz.png",
+      "selectedIconPath": "images/icon-w-sh.png"
     }]
   }
 }

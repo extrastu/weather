@@ -1,3 +1,6 @@
+<i-notice-bar icon="systemprompt" closable loop>
+   在预览界面长按保存,然后在系统相册查看与使用
+</i-notice-bar>
 <view class="info">
   <view class="title">{{title}}</view>
   <i-divider content="每图精选"></i-divider>

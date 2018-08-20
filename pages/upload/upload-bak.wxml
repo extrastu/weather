@@ -1,0 +1,5 @@
+<i-panel title="圆角输入框">
+    <i-input value="{{ type }}" right type='textarea' title="壁纸类型"  placeholder="请输入壁纸类型" bind:blur="changeVal" />
+    <i-button bind:click="uploadImg" type="success" shape="circle" size="small">选择图片并提交</i-button>
+    <!-- <i-button bind:click="save" type="success" shape="circle" size="small">提交</i-button> -->
+</i-panel>

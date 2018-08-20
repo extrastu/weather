@@ -1,5 +1,16 @@
-<i-panel title="圆角输入框">
+<i-panel title="壁纸类型">
     <i-input value="{{ type }}" right type='textarea' title="壁纸类型"  placeholder="请输入壁纸类型" bind:blur="changeVal" />
-    <i-button bind:click="uploadImg" type="success" shape="circle" size="small">选择图片并提交</i-button>
-    <!-- <i-button bind:click="save" type="success" shape="circle" size="small">提交</i-button> -->
 </i-panel>
+<i-panel title="壁纸集合">
+    <view class="gallery">
+        <view class="item" wx:for="{{images}}" wx:key="">
+            <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src="{{item}}" bindtap="previewImage" mode="aspectFill" />
+            <!-- 删除按钮 -->
+            <view class="delete" bindtap="delete" data-index="{{index}}"><image style="left: {{imageWidth / 2 - 10}}px;" src="/images/delete.png" /></view>
+        </view>
+        <view class="item">
+            <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src="/images/add.png" class="button-upload" bindtap="chooseImage" />
+        </view>
+    </view>
+</i-panel>
+<button type="primary" bindtap="submit">提交</button>
