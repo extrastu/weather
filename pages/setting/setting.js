@@ -36,22 +36,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    const user = AV.User.current();
-    // 调用小程序 API，得到用户信息
-    wx.getUserInfo({
-      success: ({
-        userInfo
-      }) => {
-        // 更新当前用户的信息
-        user.set(userInfo).save().then(user => {
-          // 成功，此时可在控制台中看到更新后的用户信息
-          this.globalData.user = user.toJSON();
-          this.setData({
-            role: user.toJSON.role
-          })
-        }).catch(console.error);
-      }
-    });
+
   },
 
   /**

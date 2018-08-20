@@ -105,7 +105,6 @@ Page({
           let updatedAt = object.updatedAt;
           res.updateTime = updatedAt;
           typeList.push(res);
-
         }
         console.log(typeList)
         wx.hideLoading();

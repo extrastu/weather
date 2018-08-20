@@ -8,6 +8,7 @@
     "pages/update/update",
     "pages/theme/theme",
     "pages/upload/upload"
+   
   ],
   "window": {
     "backgroundTextStyle": "light",
