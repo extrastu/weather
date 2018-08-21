@@ -16,7 +16,8 @@ Page({
         offsetRange: 0, //用于统计分页加载数据,已经加载数据数量
         imgArr: [],
         spinShow: true,
-        SkinStyle: ''
+        SkinStyle: '',
+        OneStyle:true
     },
 
     /**
@@ -47,6 +48,16 @@ Page({
             success: function (res) {
                 that.setData({
                     SkinStyle: res.data
+                })
+            }
+        })
+
+        wx.getStorage({
+            key: 'OneStyle',
+            success: function (res) {
+                console.log(res.data)
+                that.setData({
+                    OneStyle: res.data
                 })
             }
         })

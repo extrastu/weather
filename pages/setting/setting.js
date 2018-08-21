@@ -7,7 +7,8 @@ Page({
    */
   data: {
     SkinStyle: "normal",
-    role: ""
+    role: "",
+      switch1: false
   },
 
   /**
@@ -72,6 +73,19 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  onChange(event) {
+    
+    const detail = event.detail;
+    console.log(detail)
+
+    this.setData({
+        'switch1': detail.value
+    })
+      wx.setStorage({ //设置storage
+          key: 'OneStyle',
+          data: !detail.value,
+      })
   },
   //模式的改变
   towChange(event) {

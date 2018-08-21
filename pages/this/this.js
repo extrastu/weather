@@ -24,12 +24,16 @@ Page({
           count: views
       })
       var todo = AV.Object.createWithoutData('pic', _id);
-      // 第一个参数是 className，第二个参数是 objectId
-    
-      // 修改属性
-      todo.set('views', views);
-      // 保存到云端
-      todo.save();
+      todo.set('views',0);
+      todo.save().then(function (todo) {
+          todo.increment('views', views);
+          todo.fetchWhenSave(true);
+          return todo.save();
+      }).then(function (todo) {
+          // 使用了 fetchWhenSave 选项，save 成功之后即可得到最新的 views 值
+      }, function (error) {
+          // 异常处理
+      });
       this.setData({
           src: object.src
       });

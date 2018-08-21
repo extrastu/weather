@@ -114,3 +114,15 @@
 .white {
   background: white !important;
 }
+
+.gallery {
+    /*定义列数*/
+    column-count: 2;
+    /*列间距*/
+    column-gap: 8rpx;
+}
+
+/*图片本身*/
+.item image {
+  width: 100%;
+}
