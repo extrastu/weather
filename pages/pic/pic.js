@@ -17,7 +17,7 @@ Page({
         imgArr: [],
         spinShow: true,
         SkinStyle: '',
-        OneStyle:true
+        OneStyle:"one"
     },
 
     /**
@@ -35,12 +35,6 @@ Page({
         //     title: '加载中',
         // })
         // this.fetchPhotos()
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
         let that = this
         that.fetchPhotos()
         wx.getStorage({
@@ -53,7 +47,7 @@ Page({
         })
 
         wx.getStorage({
-            key: 'OneStyle',
+            key: 'style',
             success: function (res) {
                 console.log(res.data)
                 that.setData({
@@ -61,6 +55,32 @@ Page({
                 })
             }
         })
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        // let that = this
+        // that.fetchPhotos()
+        // wx.getStorage({
+        //     key: 'skins',
+        //     success: function (res) {
+        //         that.setData({
+        //             SkinStyle: res.data
+        //         })
+        //     }
+        // })
+
+        // wx.getStorage({
+        //     key: 'style',
+        //     success: function (res) {
+        //         console.log(res.data)
+        //         that.setData({
+        //             OneStyle: res.data
+        //         })
+        //     }
+        // })
     },
 
     /**
@@ -130,7 +150,50 @@ Page({
             })
             .catch(console.error)
     },
+    vertical:function(){
+        var that = this
+        let imgList = []
+        //  console.log("到底了")
+        //计算已经加载的数据
+        if (that.data.isReachend) {
+            return
+        }
+        let offsetRange = that.data.offsetRange + LIMIT
+        that.setData({
+            offsetRange: offsetRange,
+            isLoading: true //正在加载
+        })
+        new AV.Query('pic')
+            .descending('createdAt')
+            .limit(LIMIT)
+            .skip(that.data.offsetRange)
+            .find()
+            .then(data => {
+                let objects = data
+                if (objects.lengths == 0) {
+                    that.setData({
+                        isReachEnd: true, //已经获取全部数据
+                        isLoading: false, //加载结束,
+                        spinShow: false
+                    })
+                } else {
+                    for (let i = 0; i < data.length; i++) {
+                        let object = data[i]
+                        let res = object._serverData.urls
+                        imgList.push(res)
+                    }
+                    that.setData({
+                        wallpaper: that.data.wallpaper.concat(objects),
+                        isLoading: false,
+                        imgArr: that.data.imgArr.concat(imgList),
+                        spinShow: false
+                    })
+                }
+            })
+            .catch(console.error)
+    },
     fetchPhotos: function () {
+  
         var that = this
         let imgList = []
         new AV.Query('pic')

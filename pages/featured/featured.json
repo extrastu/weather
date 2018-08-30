@@ -2,5 +2,9 @@
   "navigationBarTitleText": "精选每图",
   "navigationBarTextStyle": "light",
   "navigationBarBackgroundColor": "#2c2c2c",
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "i-input": "../../dist/input/index",
+    "i-icon": "../../dist/icon/index"
+    }
 }

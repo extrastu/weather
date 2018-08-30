@@ -1,7 +1,8 @@
 
 <i-notice-bar icon="systemprompt" closable loop>
-   在预览界面长按保存,然后在系统相册查看与使用,谢谢您的使用
+   在预览界面长按保存,然后在系统相册查看与使用,谢谢您的使用,可以的话帮忙点下广告,万分感谢
 </i-notice-bar>
 <view class='img'>
     <image src='{{src}}' mode="widthFix"  bindtap='previewImg' data-src="{{src}}"></image>
 </view>
+<ad unit-id="adunit-35e09c5c6ecd49a9"></ad>

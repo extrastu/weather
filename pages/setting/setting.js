@@ -8,7 +8,19 @@ Page({
   data: {
     SkinStyle: "normal",
     role: "",
-      switch1: false
+    switch1: false,
+      fruit: [{
+          id: 1,
+          name: 'one',
+      }, {
+          id: 2,
+          name: 'tow'
+      }, {
+          id: 3,
+          name: 'Landscape'
+      }],
+      current: 'one',
+      position: 'left',
   },
 
   /**
@@ -24,8 +36,25 @@ Page({
         })
       },
     })
+      wx.getStorage({
+          key: 'style',
+          success: function (res) {
+              that.setData({
+                  current: res.data
+              })
+          },
+      })
   },
-
+ //   单双栏横向滚动切换
+  handleFruitChange({ detail = {} }) {
+        this.setData({
+            current: detail.value
+        });
+      wx.setStorage({ //设置storage
+          key: 'style',
+          data: detail.value,
+      })
+    },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -74,6 +103,7 @@ Page({
   onShareAppMessage: function () {
 
   },
+  //改变当前显示模式单栏/双栏瀑布流
   onChange(event) {
     
     const detail = event.detail;
@@ -96,10 +126,8 @@ Page({
         SkinStyle: app.globalData.skin //设置SkinStyle的值
       })
       wx.setStorage({ //设置storage
-        　　　　
         key: 'skins',
-        　　　　data: app.globalData.skin,
-        　　
+　　　　data: app.globalData.skin,
       })
     } else {
       app.globalData.skin = "normal";
@@ -108,7 +136,7 @@ Page({
       })
       wx.setStorage({　　　　
         key: 'skins',
-        　　　　data: app.globalData.skin,
+　　　　data: app.globalData.skin,
         　　
       })
     }

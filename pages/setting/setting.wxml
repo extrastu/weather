@@ -4,19 +4,19 @@
   </view>
   <view class="settings_mb">
     <i-panel title="显示">
-      <i-cell-group>
-        <i-cell-group>
-          <i-cell title="双栏">
-          <i-switch value="{{switch1}}" bind:change="onChange" slot="footer"></i-switch>
-        </i-cell>
-        </i-cell-group>
-      </i-cell-group>
+    <i-cell-group>
+        <i-panel title="单/双栏/横屏滚动切换">
+            <i-radio-group current="{{current}}" bindchange="handleFruitChange">
+                <i-radio wx:for="{{fruit}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}">
+                </i-radio>
+            </i-radio-group>
+        </i-panel>
+    </i-cell-group>
       <i-cell-group>
         <i-cell-group>
           <i-cell title="主题颜色" is-link url="/pages/theme/theme"></i-cell>
         </i-cell-group>
       </i-cell-group>
-      
     </i-panel>
     <i-panel title="关于">
       <i-cell-group>
@@ -34,7 +34,10 @@
     </i-panel>
     <i-panel title="壁纸源">
       <i-cell-group>
-        <i-cell title="unsplash"></i-cell>
+        <i-cell title="unsplash" is-link value="https://unsplash.com/"></i-cell>
+      </i-cell-group>
+      <i-cell-group>
+        <i-cell title="人工挑选" is-link value="https://blog.extrastu.xin/"></i-cell>
       </i-cell-group>
     </i-panel>
     <i-panel title="更新">
@@ -43,9 +46,11 @@
       </i-cell-group>
     </i-panel>
     <view class='banquan'>
-      <view class="footer">本项目由张益达同学开发,张益达同学维护</view>
-      <view class="footer">如收录图片的作者有版权亦有其他问题,</view>
-      <view class="footer">请及时与张益达同学联系,张益达同学将会在第一时间内删除.</view>
+      <view class="footer"><i-icon type="mine_fill" size="28" color="#2d8cf0" />本项目由张益达同学开发,张益达同学维护</view>
+      <view class="footer"><i-icon type="message_fill" size="28" color="#ff9900" />如收录图片的作者有版权亦有其他问题,</view>
+      <view class="footer"><i-icon type="mail_fill" size="28" color="#2d8cf0" />请及时与益达同学联系,益达同学将会在第一时间内删</view>
+      <view class="footer"><i-icon type="like_fill" size="28" color="red" />感谢所有还在使用的人,你们的使用是我最大的动力</view>
+       <view class="footer"><i-icon type="like_fill" size="28" color="red" />可以的话帮忙点下广告,万分感谢</view>
     </view>
   </view>
 </view>

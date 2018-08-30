@@ -1,4 +1,9 @@
 <view class="featured {{SkinStyle}}">
+    <!-- <view  style='width: 90%;margin:0 auto;margin-bottom:20px; '>
+      <i-panel title="搜索" >
+        <i-input  placeholder="搜索" i-class='search' disabled='true' />
+    </i-panel>
+    </view> -->
   <view class="{{item.colorClass}}" style="background-image:url({{item.typeBgUrl}})" id="topic" wx:for="{{featured}}" data-list="{{item}}" wx:key="index" bindtap='previewImg'>
     {{item.types}}
   </view>
