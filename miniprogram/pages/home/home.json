@@ -1,0 +1,17 @@
+{
+	"component": true,
+	"enablePullDownRefresh": true,
+	"usingComponents": {
+		"nav-bar": "/commpents/navBar/navBar",
+		"i-spin": "../../dist/spin/index",
+		"i-load-more": "../../dist/load-more/index",
+		"i-modal": "../../dist/modal/index",
+		"i-toast": "../../dist/toast/index",
+		"i-row": "../../dist/row/index",
+		"i-col": "../../dist/col/index"
+	},
+	"window": {
+		"backgroundColor": "#2c2c2c",
+		"backgroundTextStyle": "dark"
+	}
+}

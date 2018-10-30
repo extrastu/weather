@@ -1,0 +1,27 @@
+/* pages/types/types.wxss */
+@import "../../app.wxss";
+
+.placeholder{
+    margin: 5px;
+    padding: 0 10px;
+    height: 2.3em;
+    line-height: 2.3em;
+    color: #000;
+	font-weight: bold;
+}
+.active{
+	color:#000!important;
+}
+
+.gallery {
+    /*定义列数*/
+    column-count: 2;
+    /*列间距*/
+    column-gap: 1rpx;
+}
+
+/*图片本身*/
+.item image {
+  width: 95%;
+  border-radius: 20px;
+}

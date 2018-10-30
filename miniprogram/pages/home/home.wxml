@@ -1,0 +1,84 @@
+<!--pages/home/home.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class='home-page' style='margin-top: {{height}}px;'>
+    <!-- <view class='home-page'> -->
+    <view class="page__bd">
+        <view style='font-size:24px;font-weight:800;padding:20px;'>
+            每图
+        </view>
+        <view class='search' bindtap='openAlert'>
+            <view class='fa fa-search'>搜索</view>
+        </view>
+        <!-- <view class='page__hd'>
+            <view style='width:100%;height:500rpx;'>
+                <image src="{{randomSrc}}" mode='top' style='width:100%;height:100%;'></image>
+            </view>
+        </view> -->
+        <!-- <scroll-view scroll-y="true" bindscroll="scroll" scroll-top="{{scrollTop}}" style="position:absolute; top:0; left:0; right:0; bottom:0;" style='height:{{dh}}px'> -->
+        <!-- <view class="weui-flex" style='padding: 20px  20px;'>
+                <view class="weui-flex__item">
+                    <view class='fa fa-search ' style='color:#000' bindtap='search' data-style="one"> </view>
+                    每图
+                </view>
+                <view class="weui-flex__item">
+                    <view class="placeholder" style='text-align:right;'>
+                        <view class='fa fa-th  {{ style=="tow"? "active":"" }}' style='margin-right:10px;color:grey' bindtap='changeStyle' data-style="tow"> </view>
+                        <view class='fa fa-align-justify  {{ style=="one"?  "active":"" }}' style='color:grey' bindtap='changeStyle' data-style="one"> </view>
+                    </view>
+                </view>
+            </view> -->
+        <view style="padding:10px 20px;" bindtap='toList'>
+            <i-row>
+                <i-col span="18" i-class="col-class">Explore</i-col>
+                <i-col span="6" i-class="col-class" style='line-height:30px;text-align:right;'>All <view class='fa fa-th'></view></i-col>
+            </i-row>
+        </view>
+        <view class='page__hd'>
+            <view class="section section_gap">
+                <scroll-view class="scroll-view_H" scroll-x style="width: 100%;height:100%;" scroll-with-animation="true">
+                    <view class="scroll-view-item_H Illustrations" wx:for='{{exploreArr}}' wx:key="*this" bindtap='intoThis' data-type="{{item.title}}">
+                        <image src="{{item.bg}}" mode='aspectFill' style='width:100%;height:100%; border-radius:15px;overflow:hidden;'></image>
+                        <view class='v_info'>
+                            {{item.title}}
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+        <view style="font-size:20px;padding:10px 20px;">
+            New
+        </view>
+        <view wx-if="{{style=='one'}}">
+
+            <block wx:for="{{ latests }}" wx:key="{{index}}" wx:for-item="photo" wx:for-index="idx">
+                <view class="photo" style='margin-bottom:1px;text-align:center;'>
+                    <image src="{{ photo.url}}" data-index="{{idx+1}}" mode="widthFix" style='width:90%;margin: 0 auto; border-radius: 10px;' data-src="{{photo.url}}" bindtap='previewImg'></image>
+                </view>
+            </block>
+        </view>
+        <view wx-if="{{style=='tow'}}">
+            <view class="gallery ">
+                <block wx:for="{{ latests }}" wx:key="{{index}}" wx:for-item="photo" wx:for-index="idx">
+                    <view class="item " style='text-align:center;'>
+                        <image src="{{ photo.url}}" mode="widthFix" data-src="{{photo.ur}}" bindtap='previewImg'></image>
+                    </view>
+                </block>
+            </view>
+        </view>
+
+        <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+
+        <view class='goTop' bindtap="goTop" wx:if="{{ floorstatus }}">
+            <image src='../../images/icon-tab/top.png'></image>
+        </view>
+        <i-modal title="上传壁纸协议" visible="{{ visible }}" bind:ok="_toUpdate" bind:cancel="handleClose">
+            <view>每图致力于打造高质量的</view>
+            <view>壁纸分享平台</view>
+            <view>希望通过大家的投稿来丰富壁纸库</view>
+            <view>所有的投稿都会被认真对待</view>
+            <view>符合条件的将会被收录在"网友分享中"</view>
+            <view>谢谢各位</view>
+        </i-modal>
+        <i-toast id="toast" />
+    </view>
+</view>

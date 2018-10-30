@@ -1,0 +1,23 @@
+<!--commpents/navBar/navBar.wxml-->
+<view class='nav-wrap' style='height:{{height*2 + 20}}px;background:{{navbarData.bgColor}};overflow:hidden;'>
+    <view class='nav-title' style='line-height: {{height*2 + 44}}px;'>{{navbarData.title}}</view>
+    <view style='display: flex; justify-content: space-around;flex-direction: column'>
+        <view class='nav-capsule' style='height: {{height*2 + 44}}px;' wx:if='{{navbarData.showCapsule}}'>
+            <view bindtap='_navback' wx:if='{{navbarData.isBackShow =="false"}}'>
+                <image src='../../images/Back.png' mode='aspectFill' class='back-pre'></image>
+            </view>
+            <!-- <view class='navbar-v-line' wx:if='{{!share}}'></view> -->
+            <view bindtap='_toUpdate' wx:if='{{navbarData.isBackShow == "true"}}'>
+                <image src='../../images/camera.png' mode='aspectFill' class='back-home'></image>
+            </view>
+        </view>
+    </view>
+    <i-modal title="上传壁纸协议" visible="{{ visible }}" bind:ok="_toUpdate" bind:cancel="handleClose">
+        <view>每图致力于打造高质量的</view>
+        <view>壁纸分享平台</view>
+        <view>希望通过大家的投稿来丰富壁纸库</view>
+        <view>所有的投稿都会被认真对待</view>
+        <view>符合条件的将会被收录在"网友分享中"</view>
+        <view>谢谢各位</view>
+    </i-modal>
+</view>

@@ -1,0 +1,7 @@
+/* pages/about/about.wxss */
+.title{
+	text-align: center;
+	font-size: 24px;
+	font-weight: 800;
+	margin: 20px;
+}

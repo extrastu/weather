@@ -1,0 +1,9 @@
+{
+	"component": true,
+	"usingComponents": {
+		"nav-bar": "/commpents/navBar/navBar",
+		"i-modal": "../../dist/modal/index",
+		"i-input": "../../dist/input/index",
+		"i-button": "../../dist/button/index"
+	}
+}

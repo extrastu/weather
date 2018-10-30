@@ -1,0 +1,6 @@
+<!--pages/about/about.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view style='margin-top: {{height}}px;'>
+    <view class='title'>关于每图</view>
+	<view>v.</view>
+</view>

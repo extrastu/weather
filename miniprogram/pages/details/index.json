@@ -1,0 +1,7 @@
+{
+	"navigationBarTitleText": "OkSplash",
+	"navigationBarTextStyle": "black",
+	"usingComponents": {
+		"nav-bar": "/commpents/navBar/navBar"
+	}
+}

@@ -1,0 +1,46 @@
+<!--pages/set/set.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view style='margin-top: {{height}}px;'>
+    <view class="weui-flex__item">
+        <text class='title'>设置</text>
+        <view class="section section_gap">
+            <scroll-view class="scroll-view_H" scroll-x style="width: 100%;height:100%;" scroll-with-animation="true">
+                <view class="scroll-view-item_H Illustrations about" bindtap='intoThis' data-type='about'>
+                    <image src="" mode='aspectFill' style='width:100%;height:100%; border-radius:15px;overflow:hidden;'></image>
+                    <view class='v_info'>
+                        关于我
+                    </view>
+                </view>
+                <view class="scroll-view-item_H Illustrations usage" bindtap='intoThis' data-type='usage'>
+                    <image src="" mode='aspectFill' style='width:100%;height:100%; border-radius:15px;overflow:hidden;'></image>
+                    <view class='v_info'>
+                        使用须知
+                    </view>
+                </view>
+                <view class="scroll-view-item_H Illustrations feedback" bindtap='intoThis' data-type='feedback'>
+                    <image src="" mode='aspectFill' style='width:100%;height:100%; border-radius:15px;overflow:hidden;'></image>
+                    <view class='v_info'>
+                        反馈交流
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <i-cell-group>
+            <i-cell title="更换皮肤" is-link url="">
+                <i-icon type="shop_fill" slot="icon" />
+            </i-cell>
+            <i-cell title="权限服务" is-link url="">
+                <i-icon type="browse_fill" slot="icon" />
+            </i-cell>
+            <i-cell title="清空缓存" is-link url="">
+                <i-icon type="trash_fill" slot="icon" />
+            </i-cell>
+            <i-cell title="用户协议" is-link url="">
+                <i-icon type="group_fill" slot="icon" />
+            </i-cell>
+			<i-cell title="更新记录" is-link url="">
+				<i-icon type="activity_fill" slot="icon" />
+            </i-cell>
+        </i-cell-group>
+    </view>
+</view>

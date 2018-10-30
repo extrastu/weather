@@ -1,0 +1,11 @@
+<!--pages/list/list.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view style='margin-top: {{height}}px;text-align:center;'>
+    <view class="scroll-view-item_H Illustrations" wx:for='{{exploreArr}}' wx:key="*this" bindtap='intoThis' data-type="{{item.title}}">
+        <image src="{{item.bg}}" mode='aspectFill' style='width:100%;height:100%; border-radius:15px;overflow:hidden;'></image>
+        <view class='v_info'>
+            {{item.title}}
+        </view>
+    </view>
+	 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+</view>

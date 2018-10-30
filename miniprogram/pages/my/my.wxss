@@ -1,0 +1,47 @@
+/* pages/my/my.wxss */
+
+.userInfo {
+    padding: 50px 20px;
+    background: skyblue;
+}
+
+.userMessage {
+    width: 85%;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px grey;
+    position: relative;
+    top: -98px;
+	overflow:hidden;
+}
+
+.userAvator {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    top: -89px;
+    left: 69%;
+	z-index: 2;
+}
+.zuji{
+	position: relative;
+	top:-90px;
+}
+.active{
+	color: #000!important;
+}
+
+
+.gallery {
+    /*定义列数*/
+    column-count: 2;
+    /*列间距*/
+    column-gap: 1rpx;
+}
+
+/*图片本身*/
+.item image {
+  width: 95%;
+  border-radius: 20px;
+}

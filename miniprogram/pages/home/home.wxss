@@ -1,0 +1,96 @@
+/* pages/home/home.wxss */
+
+.active{
+	color:#000!important;
+}
+
+.gallery {
+    /*定义列数*/
+    column-count: 2;
+    /*列间距*/
+    column-gap: 1rpx;
+}
+
+/*图片本身*/
+.item image {
+  width: 95%;
+  border-radius: 20px;
+}
+
+/* 返回顶部 */
+.widget-goTop { 
+  position: fixed; 
+  bottom: 15px; 
+  right: 15px; 
+  background: rgba(0,0,0,0.48); 
+  border-radius: 50%; 
+  overflow: hidden; 
+  z-index: 500; 
+} 
+.widget-goTop .gotop-wrap { 
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width: 50px; 
+  height: 50px; 
+  font-size: 12px; 
+  color: #fff; 
+  border-radius: 50%; 
+  background-color: rgba(0,0,0,0.8); 
+  -webkit-background-size: 50px auto; 
+}
+.goTop image{
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	z-index: 100;
+	border: 1px solid #fff;
+	background: #fff;
+	box-shadow: 3px 3px 3px 3px grey;
+}
+
+.scroll-view_H{
+  width: 100%;
+  white-space: nowrap;
+}
+.scroll-view-item_H,.Illustrations{
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 50px;
+  margin: 10px 10px;
+  box-shadow: 5px 5px 5px 5px pink;
+  overflow: hidden;
+}
+.Illustrations{
+	width: 300px;
+	height: 100px;
+	position: relative;
+}
+.v_info{
+	position: absolute;
+	bottom: 0px;
+	height: 40px;
+	width:100%;
+	color:#fff;
+	line-height: 40px;
+	text-align: left;
+	padding-left: 15px;
+}
+
+.search{
+	width: 90%;
+	margin: 0 auto;
+	height: 50px;
+	background: #F9FAF9;
+	border-radius: 25px;
+	overflow: hidden;
+	text-align: center;
+	line-height: 50px;
+}

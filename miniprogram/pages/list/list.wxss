@@ -1,0 +1,32 @@
+/* pages/list/list.wxss */
+.scroll-view_H{
+  width: 100%;
+  white-space: nowrap;
+}
+.scroll-view-item_H,.Illustrations{
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 50px;
+  margin: 10px 10px;
+  box-shadow: 5px 5px 5px 5px pink;
+  overflow: hidden;
+}
+.Illustrations{
+	width: 90%;
+	height: 100px;
+	position: relative;
+	text-align: center;
+}
+.v_info{
+	position: absolute;
+	bottom: 0px;
+	height: 40px;
+	width:100%;
+	color:#fff;
+	line-height: 40px;
+	text-align: left;
+	padding-left: 15px;
+}

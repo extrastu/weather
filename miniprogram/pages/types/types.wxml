@@ -1,0 +1,34 @@
+<!--pages/types/types.wxml-->
+<view class='page'>
+    <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+    <view class="page__bd" style='margin-top: {{height}}px;'>
+        <view class="weui-flex" style='padding:20px 0;'>
+            <view class="weui-flex__item">
+                <!-- <view class="placeholder">总量:{{total}}</view> -->
+            </view>
+            <view class="weui-flex__item">
+                <view class="placeholder" style='text-align:right;'>
+                    <view class='fa fa-th  {{ style=="tow"? "active":"" }}' style='margin-right:10px;color:grey' bindtap='changeStyle' data-style="tow"> </view>
+                    <view class='fa fa-align-justify  {{ style=="one"?  "active":"" }}' style='color:grey' bindtap='changeStyle' data-style="one"> </view>
+                </view>
+            </view>
+        </view>
+        <view wx-if="{{style=='one'}}">
+            <block wx:for="{{ latests }}" wx:key="{{index}}" wx:for-item="photo" wx:for-index="idx">
+                <view class="photo" style='margin-bottom:20px;text-align:center;'>
+                    <image src="{{ photo.url }}" mode="widthFix" style='width:90%;border-radius:15px;box-shadow: 0px 0px  10px 5px #aaa;margin: 0 auto;' data-src="{{photo.url}}"  bindtap='previewImg'></image>
+                </view>
+            </block>
+        </view>
+        <view wx-if="{{style=='tow'}}">
+            <view class="gallery ">
+                <block wx:for="{{ latests }}" wx:key="{{index}}" wx:for-item="photo" wx:for-index="idx">
+                <view class="item " style='text-align:center;'>
+                    <image src="{{ photo.url}}" mode="widthFix" data-src="{{photo.url}}" bindtap='previewImg'></image>
+                </view>
+            </block>
+            </view>
+        </view>
+    </view>
+	   <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+</view>

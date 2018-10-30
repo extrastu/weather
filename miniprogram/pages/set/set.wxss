@@ -1,0 +1,47 @@
+/* pages/set/set.wxss */
+.title{
+	margin-left: 20px;
+	font-size: 24px;
+	font-weight: 800;
+}
+
+.scroll-view_H{
+  width: 100%;
+  white-space: nowrap;
+}
+.scroll-view-item_H,.Illustrations{
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 50px;
+  margin: 10px 10px;
+  /* box-shadow: 5px 5px 5px 5px pink; */
+  overflow: hidden;
+}
+.Illustrations{
+	width: 150px;
+	height: 100px;
+	position: relative;
+}
+.v_info{
+	position: absolute;
+	bottom: 0px;
+	height: 40px;
+	width:100%;
+	color:#000;
+	font-weight: 800;
+	line-height: 40px;
+	text-align: left;
+	padding-left: 15px;
+}
+.about{
+	background: #51dacf;
+}
+.usage{
+	background: #f9b8be;
+}
+.feedback{
+	background: #00d7d7;
+}

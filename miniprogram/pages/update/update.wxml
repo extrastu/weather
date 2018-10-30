@@ -1,0 +1,31 @@
+<!--pages/update/update.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class='page' style='margin-top: {{height}}px;'>
+    <view wx-if="{{isShow}}">
+        <!-- <i-panel title="信息">
+            <i-input value="{{ tag }}" title="标签" autofocus placeholder="请输入图片标签" />
+            <i-input value="{{ author }}" title="作者/来源" autofocus placeholder="请输入图片作者/来源" />
+            <i-input value="{{ des }}" title="描述" autofocus placeholder="请输入图片描述" />
+        </i-panel> -->
+        <view class="uploader-container" wx:if="{{imagePath}}" style='background:#fff;'>
+            <image class="uploader-image" src="{{imagePath}}" mode="widthFix" bindtap="previewImg"></image>
+        </view>
+        <i-button bind:click="doSubmit" type="success" shape="circle" size="large">约稿</i-button>
+    </view>
+    <view class="uploader" style='margin-top: 14px;'>
+        <!-- <view class="uploader-text" bindtap="uploadFile">
+            <text>{{text}}</text>
+        </view> -->
+
+    </view>
+    <i-button bind:click="uploadFile" type="success" shape="circle" size="large">{{text}}</i-button>
+</view>
+
+<i-modal title="上传壁纸协议" visible="{{ visible }}" bind:ok="handleClose" bind:cancel="backHome">
+    <view>每图致力于打造高质量的</view>
+    <view>壁纸分享平台</view>
+    <view>希望通过大家的投稿来丰富壁纸库</view>
+    <view>所有的投稿都会被认真对待</view>
+    <view>符合条件的将会被收录在"网友分享"中</view>
+    <view>谢谢各位</view>
+</i-modal>

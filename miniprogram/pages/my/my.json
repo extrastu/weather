@@ -1,0 +1,12 @@
+{
+	"component": true,
+	"usingComponents": {
+		"nav-bar": "/commpents/navBar/navBar",
+		"i-panel": "../../dist/panel/index",
+		"i-grid": "../../dist/grid/index",
+		"i-grid-item": "../../dist/grid-item/index",
+		"i-grid-icon": "../../dist/grid-icon/index",
+		"i-grid-label": "../../dist/grid-label/index",
+		"i-spin": "../../dist/spin/index"
+	}
+}
