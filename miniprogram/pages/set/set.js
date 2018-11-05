@@ -127,4 +127,18 @@ Page({
             visible: false
         });
     },
+	turnOkSplash:function(){
+		wx.navigateToMiniProgram({
+			appId: 'wx4972a5340f1d2283',
+			path: 'pages/index/index',
+			extraData: {
+				foo: 'bar'
+			},
+			envVersion: 'develop',
+			success(res) {
+				// 打开成功
+				console.log('打开成功')
+			}
+		})
+	}
 })
