@@ -1,0 +1,17 @@
+/* pages/use/use.wxss */
+.title, .version {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    margin: 20px;
+	margin-top: 50px;
+	color:#fff;
+}
+
+.version {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 5px;
+    margin-top: -22px;
+
+}

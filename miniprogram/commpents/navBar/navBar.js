@@ -43,7 +43,7 @@ Component({
 		//进入分类页
 		_toUpdate(){
 			// console.log("更新页面")
-			console.log(app.globalData.openid)
+			// console.log(app.globalData.openid)
 			wx.navigateTo({
 				url: '/pages/set/set'
 			})

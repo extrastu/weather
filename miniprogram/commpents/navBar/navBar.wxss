@@ -30,7 +30,7 @@
   display: flex;
   align-items: center;
   margin-left: 30rpx;
-  width: 140rpx;
+  width: 174rpx;
   justify-content: space-between;
   height: 100%;
 }

@@ -1,8 +1,10 @@
-<nav-bar navbar-data='{{nvabarData}}'></nav-bar> 
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view class='img' style='margin-top: {{height1}}px;'>
-    <image src='{{src}}' style=' box-shadow: 5px 5px 5px pink; ' mode="widthFix" data-src="{{src}}" bindload="imgload" bindtap='previewImg'></image>
+    <view wx:for='{{photoArrow}}' wx:for-index="idx" style='margin-top:10px;'>
+        <image src='{{item}}' style=' box-shadow: 5px 5px 5px pink; ' mode="widthFix" data-src="{{item}}" bindload="imgload" bindtap='previewImg'></image>
+    </view>
     <image wx-if='{{isLoading}}' src='../../images/loading.svg' mode="widthFix" class='loading'></image>
     <view class='author' style='background:{{color}}'>By·{{author}}</view>
-    <view class='download' data-src="{{src}}" style='background:{{color}}' bindtap='downloadThisImg'>下载
-    </view>
+    <view class='download' data-src="{{src}}" style='background:{{color}}' bindtap='downloadThisImg'>下载</view>
+    <view class='download' style='background:{{color}}' >来自:{{source}}</view>
 </view>

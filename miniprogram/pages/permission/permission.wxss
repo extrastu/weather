@@ -1,0 +1,26 @@
+/* pages/permission/permission.wxss */
+.title, .version {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    margin: 20px;
+	margin-top: 50px;
+}
+
+.version {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 5px;
+    margin-top: -20px;
+}
+.permission{
+	margin-top: 50px;
+}
+.photoServer,.cameraServer{
+	border-bottom: 1px dotted grey;
+	height: 50px;
+	line-height: 50px;
+	width: 85%;
+	margin: 20px auto;
+	overflow: hidden;
+}

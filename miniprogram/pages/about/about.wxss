@@ -1,7 +1,33 @@
 /* pages/about/about.wxss */
-.title{
-	text-align: center;
-	font-size: 24px;
-	font-weight: 800;
-	margin: 20px;
+
+.title, .version {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    margin: 20px;
+	margin-top: 50px;
+}
+
+.version {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 5px;
+    margin-top: -22px;
+}
+
+.aboutTxt {
+    clip-path: polygon(1% 0, 100% 0, 100% 91%, 0 100%);
+    width:80%;
+    height: 380px;
+    background: #fff;
+	margin: 0 auto;
+    border-radius: 10px;
+	margin-top: 30px;
+	box-shadow: 3px 3px 3px 3px pink;
+	padding: 20px;
+}
+.text{
+	margin: 10px 0;
+	line-height: 32px;
+	/* width: 100%; */
 }

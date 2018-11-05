@@ -11,6 +11,7 @@
                 <image src='../../images/camera.png' mode='aspectFill' class='back-home'></image>
             </view>
         </view>
+
     </view>
     <i-modal title="上传壁纸协议" visible="{{ visible }}" bind:ok="_toUpdate" bind:cancel="handleClose">
         <view>每图致力于打造高质量的</view>

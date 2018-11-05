@@ -1,0 +1,9 @@
+<!--pages/use/use.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view style='margin-top: {{height}}px;background:#f3576b;height:{{dh}}px;'>
+    <view class='title'>使用须知</view>
+    <view class='version'>使用手册</view>
+    <view class='useBody' style='margin-top:100px;'>
+        <i-button shape="circle" size="large">保存须长按</i-button>
+    </view>
+</view>

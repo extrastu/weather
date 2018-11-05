@@ -1,0 +1,36 @@
+<!--pages/permission/permission.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view style='margin-top: {{height}}px;'>
+    <view class='title'>权限服务</view>
+    <view class='version'>开启一下功能权限后,每图会更好的为你服务</view>
+    <view class='permission'>
+       
+        <view class='cameraServer'>
+           <view style='float:left'>
+		   		 <i-icon type="picture_fill" size="28" /><text style='font-size:14px;'>图片存储服务</text>
+		   </view>
+		   <view style='float:right'>
+				   <view wx:if='{{isAuth}}'>
+				   		<view  style='color:gray;'>已开启</view>
+				   </view>
+				   <view wx:else>
+				   		 <button bindtap='handleClick'>开启</button>
+				   </view>
+		   </view>
+        </view>
+		 <view class='photoServer'>
+			<view style='float:left'>
+		   		 <i-icon type="brush_fill" size="28" /><text style='font-size:14px;'>登录服务</text>
+		   </view>
+		   <view style='float:right'>
+				   <view wx:if='{{logged}}'>
+				   		<view  style='color:gray;'>已开启</view>
+				   </view>
+				   <view wx:else>
+				   		 <!-- <view bindtap='handleClick'>开启</view> -->
+							 <button open-type="getUserInfo"  bindgetuserinfo="onGetUserInfo">开启</button>
+				   </view>
+		   </view>
+        </view>
+    </view>
+</view>

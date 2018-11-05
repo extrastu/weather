@@ -5,8 +5,14 @@
 		"pages/details/index",
 		"pages/update/update",
 		"pages/list/list",
-		"pages/set/set"
-		
+		"pages/set/set",
+		"pages/skin/skin",
+		"pages/permission/permission",
+		"pages/use/use",
+		"pages/feedback/feedback",
+		"pages/updateRecord/index",
+		"pages/link/link",
+		"pages/sm/sm"
 	],
 	"window": {
 		"backgroundColor": "#F6F6F6",
@@ -15,5 +21,8 @@
 		"navigationBarTitleText": "每图",
 		"navigationBarTextStyle": "black",
 		"navigationStyle": "custom"
-	}
+	},
+	"navigateToMiniProgramAppIdList": [
+		"wx4972a5340f1d2283"
+	]
 }

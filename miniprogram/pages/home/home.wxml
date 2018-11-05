@@ -30,7 +30,9 @@
         <view style="padding:10px 20px;" bindtap='toList'>
             <i-row>
                 <i-col span="18" i-class="col-class">Explore</i-col>
-                <i-col span="6" i-class="col-class" style='line-height:30px;text-align:right;'>All <view class='fa fa-th'></view></i-col>
+                <i-col span="6" i-class="col-class" style='line-height:30px;text-align:right;'>All
+                    <view class='fa fa-th'></view>
+                </i-col>
             </i-row>
         </view>
         <view class='page__hd'>
@@ -49,10 +51,19 @@
             New
         </view>
         <view wx-if="{{style=='one'}}">
-
             <block wx:for="{{ latests }}" wx:key="{{index}}" wx:for-item="photo" wx:for-index="idx">
-                <view class="photo" style='margin-bottom:1px;text-align:center;'>
-                    <image src="{{ photo.url}}" data-index="{{idx+1}}" mode="widthFix" style='width:90%;margin: 0 auto; border-radius: 10px;' data-src="{{photo.url}}" bindtap='previewImg'></image>
+                <view class='zhuanlan' wx:if='{{photo.type}}' data-id='{{photo._id}}' style='width:90%;margin:20px auto;border-radius: 10px;overflow:hidden;text-align:center;box-shadow:1px 1px 1px 1px pink;' bindtap='enterThisZL'>
+                    <image src='{{ photo.url}}' mode="widthFix" style='height:150px!important;width:100%;'></image>
+                    <view class='zhuanlan_info' style='padding:0 10px;overflow:hidden;font-size:14px;color:grey;'>
+                        <view style='text-align:left;float:left;'>{{photo.column}}</view>
+                        <view style='text-align:right;float:right;'></view>
+                    </view>
+                    <view style='padding:10px;font-weight:800;font-size:16px;'>{{photo.title}}</view>
+                </view>
+                <view wx:else>
+                    <view class="photo" style='margin-bottom:1px;text-align:center;'>
+                        <image src="{{ photo.url}}" data-index="{{idx+1}}" mode="widthFix" style='width:90%;margin: 0 auto; border-radius: 10px;' data-src="{{photo.url}}" bindtap='previewImg'></image>
+                    </view>
                 </view>
             </block>
         </view>
@@ -69,7 +80,7 @@
         <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
 
         <view class='goTop' bindtap="goTop" wx:if="{{ floorstatus }}">
-            <image src='../../images/icon-tab/top.png'></image>
+            <image src='../../images/top.png'></image>
         </view>
         <i-modal title="上传壁纸协议" visible="{{ visible }}" bind:ok="_toUpdate" bind:cancel="handleClose">
             <view>每图致力于打造高质量的</view>

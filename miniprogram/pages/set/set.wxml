@@ -11,7 +11,7 @@
                         关于我
                     </view>
                 </view>
-                <view class="scroll-view-item_H Illustrations usage" bindtap='intoThis' data-type='usage'>
+                <view class="scroll-view-item_H Illustrations usage" bindtap='intoThis' data-type='use'>
                     <image src="" mode='aspectFill' style='width:100%;height:100%; border-radius:15px;overflow:hidden;'></image>
                     <view class='v_info'>
                         使用须知
@@ -26,13 +26,13 @@
             </scroll-view>
         </view>
         <i-cell-group>
-            <i-cell title="更换皮肤" is-link url="">
+            <i-cell title="更换皮肤" is-link url="/pages/skin/skin">
                 <i-icon type="shop_fill" slot="icon" />
             </i-cell>
-            <i-cell title="权限服务" is-link url="">
+            <i-cell title="权限服务" is-link url="/pages/permission/permission">
                 <i-icon type="browse_fill" slot="icon" />
             </i-cell>
-            <i-cell title="清空缓存" is-link url="">
+            <i-cell title="清空缓存" is-link url="" bind:handleOpen>
                 <i-icon type="trash_fill" slot="icon" />
             </i-cell>
             <i-cell title="用户协议" is-link url="">
@@ -41,6 +41,13 @@
 			<i-cell title="更新记录" is-link url="">
 				<i-icon type="activity_fill" slot="icon" />
             </i-cell>
+			<i-cell title="约稿" wx:if='{{isAdmin}}' is-link url="/pages/update/update?visible=true">
+				<i-icon type="activity_fill" slot="icon" />
+            </i-cell>
         </i-cell-group>
+
+		<i-modal visible="{{ visible }}" bind:ok="handleClose2" bind:cancel="handleClose1">
+			<view>确定要清空缓存么</view>
+		</i-modal>
     </view>
 </view>

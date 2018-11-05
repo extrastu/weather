@@ -1,6 +1,17 @@
 <!--pages/about/about.wxml-->
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
-<view style='margin-top: {{height}}px;'>
+<view style='margin-top: {{height}}px;background:#fcd374;height:{{dh}}px;'>
     <view class='title'>关于每图</view>
-	<view>v.</view>
+	<view class='version'>v4.0.0</view>
+	<view class='aboutBody'>
+		<view  class='aboutTxt'>
+			<view class='text'>哈喽~</view>
+			<view class='text'>我是extrastu,每图小程序的开发者,感谢你的使用</view>
+			<view class='text'>每图小程序经历过大改版四次,小改版无数次</view>
+			<view class='text'>这一次使用的是小程序云开发,后端使用的小程序云开发提供的数据库,UI完全凭借自己天马行空(ps:也参考了很多App)</view>
+			<view class='text'>资源来自网络~,如有侵权,请联系删除~</view>
+			<view class='text' style='color:skyblue'>邮箱:extrastu888@gmail.com</view>
+			<view class='text' style='text-align:left;color:blue;'>来自extrastu</view>
+		</view>
+	</view>
 </view>

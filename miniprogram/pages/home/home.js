@@ -52,6 +52,7 @@ Page({
         let that = this
 		wx.vibrateShort()
         that.getList(this.data.page, this.data.limit, (res) => {
+			console.log(res)
             that.setData({
                 latests: res,
                 spinShow: false
@@ -300,6 +301,13 @@ Page({
 	toList:()=>{
 		wx.navigateTo({
 			url: '../list/list'
+		})
+	},
+	enterThisZL:(e)=>{
+		console.log(e)
+		let id = e.currentTarget.dataset.id;
+		wx.navigateTo({
+			url: '../info/index?id='+id
 		})
 	}
 })

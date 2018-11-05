@@ -15,6 +15,11 @@ App({
         } else {
             this.globalData.share = false
         };
+
+		wx.setStorage({ //设置author
+			key: 'isAuth',
+			data: false,
+		})
         wx.getSystemInfo({
             success: (res) => {
                 this.globalData.height = res.statusBarHeight
@@ -27,6 +32,8 @@ App({
 		share: false, // 分享默认为false
 		height: 0,
 		dh:0,
-		isAgree:false
+		isAgree:false,
+		isAuthorization:false,
+		openid:undefined
 	}
 })

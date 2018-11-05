@@ -8,7 +8,7 @@ Page({
     data: {
         src: "",
         color:"",
-        author:"extrastu",
+        author:"",
         isLoading:true,
 		id:"",
 		avator:"",
@@ -16,28 +16,40 @@ Page({
 		// 组件所需的参数
 		nvabarData: {
 			showCapsule: 1, //是否显示左上角图标
-			title: '详情', //导航栏 中间的标题
+			title: '', //导航栏 中间的标题
 			isBackShow: "false"
 		},
 
 		// 此页面 页面内容距最顶部的距离
 		height1: app.globalData.height * 2 + 20,
+		photoArrow:[],
+		title:"",
+		column:"",
+		downloadUrl:"",
+		source:""
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-		this.setData({
-			src:options.src
-		})
-		this.onQuery(options.src,(res)=>{
-			// console.log('[数据库] [查询记录] 成功: ',res.data.length)
-			if(res.data.length>=1){
-				console.log('已存在,不添加进数据库')
-			}else{
-				this.onAdd(options.src, Date.parse(new Date()))
-			}
+		let that = this
+		that.onQuery(options.id,(res)=>{
+			console.log(res.data[0])
+			that.setData({
+				photoArrow: res.data[0].photoArr,
+				title: res.data[0].title,
+				column: res.data[0].column,
+				url: res.data[0].url,
+				author:res.data[0].author,
+				nvabarData: {
+					title: res.data[0].title ,
+					isBackShow: "false",
+					showCapsule: 1, 
+				},
+				downloadUrl: res.data[0].downloadUrl,
+				source: res.data[0].from
+			})
 		})
     },
 
@@ -187,17 +199,17 @@ Page({
 		})
 	},
 	// 查询指定数据
-	onQuery: function (currSrc,callback) {
+	onQuery: function (id,callback) {
 		const db = wx.cloud.database()
 		// 查询当前用户所有的 counters
-		db.collection('footprint').where({
-			src:currSrc
+		db.collection('wallpaper').where({
+			_id:id
 		}).get({
 			success: res => {
-				this.setData({
-					queryResult: JSON.stringify(res.data, null, 2)
-				})
-				// console.log('[数据库] [查询记录] 成功: ', res)
+				// this.setData({
+				// 	queryResult: JSON.stringify(res.data, null, 2)
+				// })
+				console.log('[数据库] [查询记录] 成功: ', res)
 				if(callback){
 					callback(res)
 				}

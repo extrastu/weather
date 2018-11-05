@@ -1,5 +1,4 @@
-// pages/about/about.js
-
+// pages/use/use.js
 const app = getApp()
 Page({
 
@@ -11,11 +10,11 @@ Page({
 			showCapsule: 1, //是否显示左上角图标
 			title: '', //导航栏 中间的标题
 			isBackShow: "false",
-			bgColor:"#fcd374"
+			bgColor: "#f3576b"
 		},
 		// 此页面 页面内容距最顶部的距离
 		height: app.globalData.height * 2 + 20,
-		dh:app.globalData.dh
+		dh: app.globalData.dh,
 	},
 
 	/**
@@ -74,4 +73,6 @@ Page({
 
 	}
 })
+
+
 
