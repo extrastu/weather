@@ -1,0 +1,10 @@
+{
+	"component": true,
+	"usingComponents": {
+		"nav-bar": "/commpents/navBar/navBar",
+		"image-loader": "/commpents/image-loader/pre-load",
+		"i-tabs": "../../dist/tabs/index",
+		"i-tab": "../../dist/tab/index",
+		"i-spin": "../../dist/spin/index"
+	}
+}

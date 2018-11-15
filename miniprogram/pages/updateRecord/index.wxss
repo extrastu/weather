@@ -1,0 +1,6 @@
+/* pages/updateRecord/index.wxss */
+.title{
+	margin-left: 20px;
+	font-size: 24px;
+	font-weight: 800;
+}

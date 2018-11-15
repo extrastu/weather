@@ -46,7 +46,6 @@
 
 .scroll-view-item_H {
     height: 200rpx;
-    border: 1px solid #222;
 }
 
 .bc_green {
@@ -78,4 +77,41 @@
     height: 50%;
     margin: 10px 10px;
     overflow: hidden;
+}
+.title{
+	margin-left: 20px;
+	font-size: 24px;
+	font-weight: 800;
+}
+
+.scroll-view_H{
+  width: 100%;
+  white-space: nowrap;
+}
+.scroll-view-item_H,.Illustrations{
+  display: inline-block;
+  width: 300px;
+  height: 50px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 50px;
+  margin: 10px 10px;
+  /* box-shadow: 5px 5px 5px 5px pink; */
+  overflow: hidden;
+}
+.Illustrations{
+	width: 300px;
+	height: 120px;
+	position: relative;
+}
+.v_info{
+	position: absolute;
+	bottom: 0px;
+	height: 40px;
+	width:100%;
+	color:#fff;
+	font-weight: 800;
+	line-height: 40px;
+	text-align: left;
+	padding-left: 15px;
 }

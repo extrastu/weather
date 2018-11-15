@@ -7,11 +7,12 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"nodeModules": true
+		"nodeModules": true,
+		"uglifyFileName": false
 	},
 	"appid": "wx0480ec46ceac69b4",
 	"projectname": "meitu_cloud",
-	"libVersion": "2.3.0",
+	"libVersion": "2.3.2",
 	"condition": {
 		"search": {
 			"current": -1,

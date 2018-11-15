@@ -26,7 +26,8 @@ Page({
 		title:"",
 		column:"",
 		downloadUrl:"",
-		source:""
+		source:"",
+		typeList:[]
     },
 
     /**
@@ -34,6 +35,7 @@ Page({
      */
     onLoad: function(options) {
 		let that = this
+		let type =''
 		that.onQuery(options.id,(res)=>{
 			console.log(res.data[0])
 			that.setData({
@@ -49,6 +51,26 @@ Page({
 				},
 				downloadUrl: res.data[0].downloadUrl,
 				source: res.data[0].from
+			})
+			type = res.data[0].type
+			const db = wx.cloud.database()
+			// 查询当前用户所有的 counters
+			db.collection('wallpaper').where({
+				type: type
+			}).get({
+				success: res => {
+					console.log('[数据库] [查询记录] 成功: ', res)
+					that.setData({
+						typeList:res.data
+					})
+				},
+				fail: err => {
+					wx.showToast({
+						icon: 'none',
+						title: '查询记录失败'
+					})
+					console.error('[数据库] [查询记录] 失败：', err)
+				}
 			})
 		})
     },
@@ -184,16 +206,9 @@ Page({
 				startTime: time
 			},
 			success: res => {
-				// wx.showToast({
-				// 	title: '新增记录成功',
-				// })
 				console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
 			},
 			fail: err => {
-				// wx.showToast({
-				// 	icon: 'none',
-				// 	title: '新增记录失败'
-				// })
 				console.error('[数据库] [新增记录] 失败：', err)
 			}
 		})
@@ -206,9 +221,7 @@ Page({
 			_id:id
 		}).get({
 			success: res => {
-				// this.setData({
-				// 	queryResult: JSON.stringify(res.data, null, 2)
-				// })
+				
 				console.log('[数据库] [查询记录] 成功: ', res)
 				if(callback){
 					callback(res)
@@ -221,6 +234,13 @@ Page({
 				})
 				console.error('[数据库] [查询记录] 失败：', err)
 			}
+		})
+	},
+	enterThisZL: (e) => {
+		console.log(e)
+		let id = e.currentTarget.dataset.id;
+		wx.navigateTo({
+			url: '../info/index?id=' + id
 		})
 	}
 

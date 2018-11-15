@@ -16,7 +16,8 @@ Page({
 		// 此页面 页面内容距最顶部的距离
 		height: app.globalData.height * 2 + 20,
 		dh: app.globalData.dh,
-		imgPath:"点击上方按钮开始上传"
+		imgPath:"点击上方按钮开始上传",
+		spinShow: false
 	},
 
     /**
@@ -80,16 +81,24 @@ Page({
 		wx.chooseImage({
 			success: ret => {
 				var filePath = ret.tempFilePaths[0];
+				console.log(filePath)
+				that.setData({
+					spinShow: true
+				})
 				wx.uploadFile({
-					url: 'http://www.extrastu.xin/sm',
+					url: 'https://www.extrastu.xin/sm',
 					filePath: filePath,
 					name: 'smfile',
 					success: res => {
-						console.log('上传成功：', JSON.parse(res.data) );
+						// console.log('上传成功：', JSON.parse(res.data) );
+						console.log(res)
 						result = JSON.parse(res.data)
 						console.log(result.data)
 						that.setData({
 							imgPath: result.data.url
+						})
+						that.setData({
+							spinShow: false
 						})
 						wx.setClipboardData({
 							data: result.data.url,
@@ -99,12 +108,9 @@ Page({
 										console.log(res.data) // data
 									}
 								})
+								
 							}
 						})
-						$Toast({
-							content: '你好,上传完毕,点击下方按钮复制链接',
-							type: 'sucess'
-						});
 					}
 				});
 			}

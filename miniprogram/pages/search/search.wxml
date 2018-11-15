@@ -1,0 +1,19 @@
+<!--pages/search/search.wxml-->
+<view class='page'>
+    <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+    <view style='margin-top: {{height}}px;background:pink;height:{{dh}}px;padding-top:10px;overflow:auto;-webkit-overflow-scrolling: touch;'>
+        <i-panel title="基础用法">
+            <i-input value="{{ value1 }}" i-class='search' right mode="wrapped" maxlength='-1' title="搜索" autofocus placeholder="暂时只支持英文搜索" bind:blur='intoRes' />
+        </i-panel>
+        <view>
+            <view class="gallery">
+                <view class="photo" style='margin-bottom:1px;text-align:center;' wx:for="{{ photoArr }}" wx:key="{{index}}" wx:for-item="photo" wx:for-index="idx">
+                    <!-- <image src="{{ photo.urls.regular?photo.urls.regular:'http://ww1.sinaimg.cn/large/af7053bfgy1fx8ir6rclwj20b60dva9z.jpg'}}" mode="widthFix" style='width:90%;margin: 0 auto; border-radius: 10px;' data-src="{{photo.urls.regular}}" bindtap='checkImg'></image> -->
+                    <image-loader default-image='../../images/zwt.png' mode='widthFix' original-image='{{ photo.urls.regular}}' width="100%" height="200rpx" data-src="{{photo.urls.regular}}" data-id='{{photo.id}}' bindtap='infoPage' />
+                </view>
+            </view>
+        </view>
+    </view>
+    <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+    <i-toast id="toast" />
+</view>

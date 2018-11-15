@@ -1,0 +1,19 @@
+<!--pages/sendMessage/sendMessage.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view style='margin-top: {{height}}px;'>
+    <view class="weui-flex__item">
+        <text class='title'>发送模板消息</text>
+        <view class="section section_gap">
+		<form name='pushMsgFm' report-submit bindsubmit='sendMessage'>
+            <i-panel title="基础用法">
+                <i-input value="{{ value1 }}" title="专辑名" autofocus placeholder="专辑名" bind:blur="changeTitle" maxlength='-1' />
+                <i-input value="{{ value2 }}" type="number" title="壁纸张数" placeholder="壁纸张数" bind:blur="changeNum" maxlength='-1'/>
+                <i-input value="{{ value3 }}" type="textarea" title="专辑风格" placeholder="专辑风格" maxlength="50" bind:blur="changeStyle"/>
+				<i-input value="{{ value4 }}" type="textarea" title="添加时间" placeholder="添加时间" maxlength="50" bind:blur="changeTime"/>
+            </i-panel>
+			   <button form-type="submit" class='logInButton'>发送</button>
+		</form> 
+        </view>
+
+    </view>
+</view>

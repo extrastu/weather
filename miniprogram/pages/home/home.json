@@ -8,7 +8,10 @@
 		"i-modal": "../../dist/modal/index",
 		"i-toast": "../../dist/toast/index",
 		"i-row": "../../dist/row/index",
-		"i-col": "../../dist/col/index"
+		"i-col": "../../dist/col/index",
+		"i-notice-bar": "../../dist/notice-bar/index",
+		"canvas-share": "/commpents/canvas-share/index",
+		"i-icon": "../../dist/icon/index"
 	},
 	"window": {
 		"backgroundColor": "#2c2c2c",

@@ -1,0 +1,12 @@
+/* pages/infoPage/infoPage.wxss */
+.imgCard{
+	text-align: center;
+}
+.col-class{
+	text-align: center;
+	color:gainsboro;
+}
+.imgDetails{
+	color: gray;
+	font-weight: 500;
+}

@@ -1,0 +1,12 @@
+/* pages/searchRes/searchRes.wxss */
+
+.title {
+    margin-left: 20px;
+    background: #2d8cf0;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+	display: inline-block;
+	padding: 0 15px;
+}

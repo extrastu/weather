@@ -1,21 +1,42 @@
-function formatTime(date) {
-  var year = date.getFullYear()
-  var month = date.getMonth() + 1
-  var day = date.getDate()
-
-  var hour = date.getHours()
-  var minute = date.getMinutes()
-  var second = date.getSeconds()
-
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+const formatTime = date => {
+	var dateNow = new Date();
+	var date = new Date(date);
+	const hour = date.getHours()
+	const minute = date.getMinutes()
+	var times = (dateNow - date) / 1000;
+	let tip = '';
+	if (times <= 0) {
+		tip = '刚刚'
+		return tip;
+	} else if (Math.floor(times / 60) <= 0) {
+		tip = '刚刚'
+		return tip;
+	} else if (times < 3600) {
+		tip = Math.floor(times / 60) + '分钟前'
+		return tip;
+	}
+	else if (times >= 3600 && (times <= 86400)) {
+		tip = Math.floor(times / 3600) + '小时前'
+		return tip;
+	} else if (times / 86400 <= 1) {
+		tip = Math.ceil(times / 86400) + '昨天'
+	}
+	else if (times / 86400 <= 31 && times / 86400 > 1) {
+		tip = Math.ceil(times / 86400) + '天前'
+	}
+	else if (times / 86400 >= 31) {
+		tip = '好几光年前~~'
+	}
+	else tip = null;
+	return tip + [hour, minute].map(formatNumber).join(':')
 }
 
-function formatNumber(n) {
-  n = n.toString()
-  return n[1] ? n : '0' + n
+const formatNumber = n => {
+	n = n.toString()
+	return n[1] ? n : '0' + n
 }
 
+//将这个接口暴露
 module.exports = {
-  formatTime: formatTime
+	formatTime: formatTime,
 }

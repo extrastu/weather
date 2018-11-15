@@ -39,7 +39,8 @@ Page({
 					currentNum: options.idx,
 					_id: res.data[options.idx - 1]._id
 				})
-				// that.onQuery(res.data[options.idx-1]._id)
+				that.onQuery(res.data[options.idx-1]._id)
+				that.onUpdateViews(res.data[options.idx - 1]._id)
 			},
 		})
 
@@ -144,11 +145,12 @@ Page({
             }
         });
     },
-	onUpdateViews: function (id,views) {
+	onUpdateViews: function (id) {
 		const db = wx.cloud.database()
+		const _ = db.command
 		db.collection('wallpaper').doc(id).update({
 			data: {
-				views: _.inc(views)
+				views: _.inc(1)
 			},
 			success: res => {
 				console.info('[数据库] [更新记录] 成功：', res)
@@ -159,23 +161,14 @@ Page({
 			}
 		})
 	},
-	onQuery: function (id) {
+	onQuery: function (ids) {
 		let that = this
 		const db = wx.cloud.database()
 		db.collection('wallpaper').where({
-			_id: id
+			_id: ids
 		}).get({
 			success: res => {
 				console.log(res)
-				let viewNum = 0;
-				if(res.data[0].views == undefined){
-					viewNum =1
-				}else{
-					viewNum = viewNum+1
-				}
-				console.log(viewNum)
-				that.onUpdateViews(id,viewNum)
-				console.log('[数据库] [查询记录] 成功: ', res)
 			},
 			fail: err => {
 				wx.showToast({

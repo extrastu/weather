@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+		"nav-bar": "/commpents/navBar/navBar",
+		"i-steps": "../../dist/steps/index",
+		"i-step": "../../dist/step/index"
+  }
+}

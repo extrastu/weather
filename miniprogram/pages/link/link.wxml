@@ -1,0 +1,17 @@
+<!--pages/link/link.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view style='margin-top: {{height}}px;background:;height:{{dh}}px;'>
+    <view style='margin-top:50px;'>
+        <i-cell-group>
+            <i-cell title="微博" value='张益达同学啊' is-link>
+                <i-icon type="shop_fill" slot="icon" />
+            </i-cell>
+            <i-cell title="邮箱" value='extrastu888@gmail.com' is-link>
+                <i-icon type="mail_fill" slot="icon" />
+            </i-cell>
+            <i-cell title="网站" value='https://blog.extrastu.xin' is-link>
+                <i-icon type="homepage_fill" slot="icon" />
+            </i-cell>
+        </i-cell-group>
+    </view>
+</view>

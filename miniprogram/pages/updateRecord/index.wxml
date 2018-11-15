@@ -1,0 +1,59 @@
+<!--pages/updateRecord/index.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view style='margin-top: {{height}}px;background:;height:{{dh}}px;'>
+    <view class="weui-flex__item">
+        <text class='title'>更新记录</text>
+        <view class="section section_gap" style='padding:20px;'>
+            <i-steps current="{{verticalCurrent}}" direction="vertical">
+                <i-step>
+                    <view slot="title">
+                        v1.0.0
+                    </view>
+                    <view slot="content">
+                        初始化版本,基于知晓云开发
+                    </view>
+                </i-step>
+                <i-step>
+                    <view slot="title">
+                         v2.0.0
+                    </view>
+                    <view slot="content">
+                       知晓云费用昂贵,改为leancloud开发
+                    </view>
+                </i-step>
+                <i-step>
+                    <view slot="title">
+                         v3.0.0
+                    </view>
+                    <view slot="content">
+                        小程序云开发,简化开发流程,不依赖第三方~
+						<view>
+							1.增加支持上传图片到SM.MS MjAxODExMDE=
+						</view>
+						<view>
+							2.增加必应每图 MjAxODExMDI=
+						</view>
+						<view>
+							3.增加跳转到OkSplash MjAxODExMDU=
+						</view>
+						<view>
+							4.新增相关,客服,浏览统计 MjAxODExMDY=
+						</view>
+						<view>
+							5.新增广告代码 MjAxODExMDg=
+						</view>
+						<view>
+							6.移除广告代码、增加更新时间和模板消息 MjAxODExMTI=
+						</view>
+						<view>
+							7.新增随机壁纸 MjAxODExMTI=
+						</view>
+						<view>
+							8.新增壁纸搜索,使用unsplash API MjAxODExMTI=
+						</view>
+                    </view>
+                </i-step>
+            </i-steps>
+        </view>
+    </view>
+</view>

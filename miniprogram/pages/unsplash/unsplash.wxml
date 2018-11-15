@@ -1,0 +1,36 @@
+<!--pages/unsplash/unsplash.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view style='margin-top: {{height}}px;'>
+    <view class="weui-flex__item">
+        <view>
+            <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+                <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">Wallpapers</view>
+                <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">Textures & Patterns</view>
+                <!-- <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">Nature</view>
+                <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">Current Events</view>
+                <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">Architecture</view>
+                <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">Business & Work</view>
+                <view class="tab-item {{currentTab==6?'active':''}}" data-current="6" bindtap="swichNav">Animals</view>
+                <view class="tab-item {{currentTab==7?'active':''}}" data-current="7" bindtap="swichNav">Travel</view>
+                <view class="tab-item {{currentTab==8?'active':''}}" data-current="8" bindtap="swichNav">Fashion</view>
+                <view class="tab-item {{currentTab==9?'active':''}}" data-current="9" bindtap="swichNav">Food & Drink</view>
+                <view class="tab-item {{currentTab==10?'active':''}}" data-current="10" bindtap="swichNav">Spirituality</view>
+                <view class="tab-item {{currentTab==11?'active':''}}" data-current="11" bindtap="swichNav">Experimental</view>
+                <view class="tab-item {{currentTab==12?'active':''}}" data-current="12" bindtap="swichNav">People</view>
+                <view class="tab-item {{currentTab==13?'active':''}}" data-current="13" bindtap="swichNav">Health</view>
+                <view class="tab-item {{currentTab==14?'active':''}}" data-current="14" bindtap="swichNav">Arts & Culture</view> -->
+            </scroll-view>
+            <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+                <swiper-item wx:for="{{[0,1]}}">
+                    <scroll-view scroll-y="true" class="scoll-h">
+                            <view wx:for="{{ photoArr }}" wx:key="{{index}}" wx:for-item="photo" wx:for-index="idx">
+                                <image-loader default-image='http://ww1.sinaimg.cn/large/af7053bfgy1fx8rxkvhy1g2074074whe.gif' mode='widthFix' original-image='{{ photo.urls.regular}}' width="100%" height="200rpx" data-src="{{photo.urls.regular}}" data-id='{{photo.id}}' bindtap='infoPage' />
+                            </view>
+                    </scroll-view>
+                </swiper-item>
+            </swiper>
+        </view>
+
+    </view>
+</view>
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

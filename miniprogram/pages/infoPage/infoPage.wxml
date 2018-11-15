@@ -1,0 +1,28 @@
+<!--pages/infoPage/infoPage.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view style='margin-top: {{height}}px;'>
+    <view class='imgCard'>
+        <image-loader default-image='../../images/zwt.png' mode='widthFix' original-image='{{imgObj.urls.regular}}' width="100%" data-src="{{imgObj.urls.regular}}" bindtap='checkImg' />
+        <view class='imgInfo'>
+            <i-row>
+                <i-col span="8" i-class="col-class">
+                    <view>downloads</view>
+                    <view class='imgDetails'>{{imgObj.downloads}}</view>
+                </i-col>
+                <i-col span="8" i-class="col-class">
+                    <view>likes</view>
+                    <view class='imgDetails'>{{imgObj.likes}}</view>
+                </i-col>
+                <i-col span="8" i-class="col-class">
+                    <view>views</view>
+                    <view class='imgDetails'>{{imgObj.views}}</view>
+                </i-col>
+            </i-row>
+        </view>
+        <view class='imgOwner'>
+            <i-button bind:click="handleClick" type="success" shape="circle" size="small"> By {{imgObj.user.name}}</i-button>
+            <i-button bind:click="handleClick" type="info" shape="circle" size="small"> From Unsplash</i-button>
+            <i-button bind:click="handleClick" type="ghost" shape="circle" size="small"> 点击图片下载</i-button>
+        </view>
+    </view>
+</view>

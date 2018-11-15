@@ -1,0 +1,22 @@
+/* pages/search/search.wxss */
+.page{
+	position: relative;
+}
+.search{
+	border-radius: 30px;
+	background-color: #F9FAF9!important;
+	color: #222!important;
+}
+
+.gallery {
+    /*定义列数*/
+    column-count: 1;
+    /*列间距*/
+    /* column-gap: 2px; */
+}
+
+/*图片本身*/
+.item image {
+  width: 100%;
+}
+

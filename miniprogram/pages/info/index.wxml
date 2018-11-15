@@ -7,4 +7,15 @@
     <view class='author' style='background:{{color}}'>By·{{author}}</view>
     <view class='download' data-src="{{src}}" style='background:{{color}}' bindtap='downloadThisImg'>下载</view>
     <view class='download' style='background:{{color}}' >来自:{{source}}</view>
+	<view style='text-align:left; padding:20px 20px;font-size:14px;color:grey;'>其他相关</view>
+	 <view class="section section_gap">
+            <scroll-view class="scroll-view_H" scroll-x style="width: 100%;height:100%;" scroll-with-animation="true">
+                <view class="scroll-view-item_H Illustrations about" wx:for='{{typeList}}' wx:for-index="idx" data-id='{{item._id}}'  bindtap='enterThisZL'>
+                    <image src="{{item.url}}" mode='aspectFill' style='width:100%;height:100%; border-radius:15px;overflow:hidden;'></image>
+                    <view class='v_info'>
+                        {{item.title}}
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
 </view>

@@ -1,0 +1,8 @@
+{
+	"component": true,
+	"usingComponents": {
+		"nav-bar": "/commpents/navBar/navBar",
+		"i-toast": "../../dist/toast/index",
+		"i-spin": "../../dist/spin/index"
+	}
+}

@@ -1,0 +1,10 @@
+<!--pages/feedback/feedback.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view style='margin-top: {{height}}px;background:pink;height:{{dh}}px;'>
+    <view class="weui-flex__item">
+        <text class='title'>反馈</text>
+        <view class="section section_gap">
+
+        </view>
+    </view>
+</view>
