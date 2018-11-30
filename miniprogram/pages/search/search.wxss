@@ -1,22 +1,77 @@
 /* pages/search/search.wxss */
-.page{
-	position: relative;
+
+.page {
+    position: relative;
 }
-.search{
-	border-radius: 30px;
-	background-color: #F9FAF9!important;
-	color: #222!important;
+
+.search {
+    border-radius: 30px;
+    background-color: #f9faf9 !important;
+    color: #222 !important;
 }
 
 .gallery {
     /*定义列数*/
     column-count: 1;
-    /*列间距*/
-    /* column-gap: 2px; */
+    /*列间距*//* column-gap: 2px; */
 }
 
 /*图片本身*/
+
 .item image {
-  width: 100%;
+    width: 100%;
 }
 
+.scroll-view_H {
+    width: 100%;
+    white-space: nowrap;
+}
+
+.scroll-view-item_H, .Illustrations {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 50px;
+    margin: 10px 10px;
+    box-shadow: 2px 2px 2px 2px pink;
+    overflow: hidden;
+}
+
+.Illustrations {
+    width: 320px;
+    height: 100px;
+    position: relative;
+    border-radius: 10px;
+    background: #fff;
+    padding: 5px;
+}
+
+.unsplash_type {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+.unsplash_body {
+    position: absolute;
+    top: 65px;
+    left: 10px;
+    right: 10px;
+}
+
+.unsplash_body_item {
+    width: 45%;
+    height: 100px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid #999;
+    float: left;
+    font-size: 15px;
+    text-align: center;
+    line-height: 100px;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

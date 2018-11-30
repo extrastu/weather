@@ -35,6 +35,7 @@ App({
         isAgree: false,
         isAuthorization: false,
         openid: undefined,
-		loadingImg:"http://ww1.sinaimg.cn/large/af7053bfgy1fx8ylmwec4j20b60dva9z.jpg"
+		loadingImg:"http://ww1.sinaimg.cn/large/af7053bfgy1fx8ylmwec4j20b60dva9z.jpg",
+		isEnd:true
     }
 })

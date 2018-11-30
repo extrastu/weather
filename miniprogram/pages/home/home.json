@@ -11,7 +11,9 @@
 		"i-col": "../../dist/col/index",
 		"i-notice-bar": "../../dist/notice-bar/index",
 		"canvas-share": "/commpents/canvas-share/index",
-		"i-icon": "../../dist/icon/index"
+		"i-icon": "../../dist/icon/index",
+		"i-tabs": "../../dist/tabs/index",
+		"i-tab": "../../dist/tab/index"
 	},
 	"window": {
 		"backgroundColor": "#2c2c2c",

@@ -95,8 +95,12 @@ Page({
         exploreArr: [],
         visible: false,
         hotArr: [],
-		notice:"",
-		spinShow1:true
+        notice: "",
+        spinShow1: true,
+        current: 'tab1',
+        dmList: [],
+        isEnd: true,
+        height: ""
     },
 
     /**
@@ -104,26 +108,30 @@ Page({
      */
     onLoad: function(options) {
         let that = this
+        let h = app.globalData.dh - 200
         wx.vibrateShort()
         that.getList(this.data.page, this.data.limit, (res) => {
             that.setData({
                 latests: res,
                 spinShow: false
             })
-			let latests = that.data.latests
-			for (let i = 0; i < latests.length; i++) {
-				let time = formatTime(latests[i].createdAt)
-				var str = 'latests[' + i + '].createdAt'
-				that.setData({
-					[str]: time
-				})
-			}
+            let latests = that.data.latests
+            for (let i = 0; i < latests.length; i++) {
+                let time = formatTime(latests[i].createdAt)
+                var str = 'latests[' + i + '].createdAt'
+                that.setData({
+                    [str]: time
+                })
+            }
 
         })
         that.onQuery();
         that.fetchHot();
-		that.queryNotice();
-		that.getRandom();
+        that.queryNotice();
+        that.getRandom();
+        that.getCH();
+
+        // that.fetchDm();
         wx.getSetting({
             success: res => {
                 if (res.authSetting['scope.userInfo']) {
@@ -182,7 +190,6 @@ Page({
     onPullDownRefresh: function() {
         wx.vibrateShort()
         let that = this
-        wx.vibrateShort()
         that.setData({
             latests: [],
             spinShow: true,
@@ -193,25 +200,26 @@ Page({
                 latests: res,
                 spinShow: false
             })
-			let latests = that.data.latests
-			for (let i = 0; i < latests.length; i++) {
-				let time = formatTime(latests[i].createdAt)
-				var str = 'latests[' + i + '].createdAt'
-				that.setData({
-					[str]: time
-				})
-			}
-			
+            let latests = that.data.latests
+            for (let i = 0; i < latests.length; i++) {
+                let time = formatTime(latests[i].createdAt)
+                var str = 'latests[' + i + '].createdAt'
+                that.setData({
+                    [str]: time
+                })
+            }
+
         })
-		that.queryNotice();
-		that.fetchHot();
-		that.getRandom();
+        that.queryNotice();
+        that.fetchHot();
+        that.getRandom();
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function() {
+        console.log(123, this.current)
         wx.vibrateShort()
         wx.showLoading()
         let currentPage = this.data.page + 1
@@ -221,16 +229,17 @@ Page({
                 page: currentPage,
                 spinShow: false
             })
-			let latests = this.data.latests
-			for (let i = 0; i < latests.length; i++) {
-				let time = formatTime(latests[i].createdAt)
-				var str = 'latests[' + i + '].createdAt'
-				this.setData({
-					[str]: time
-				})
-			}
+            let latests = this.data.latests
+            for (let i = 0; i < latests.length; i++) {
+                let time = formatTime(latests[i].createdAt)
+                var str = 'latests[' + i + '].createdAt'
+                this.setData({
+                    [str]: time
+                })
+            }
             wx.hideLoading()
         })
+
     },
 
     /**
@@ -313,9 +322,9 @@ Page({
     },
     //点击预览图片
     checkImg: function(e) {
-		let id = e.currentTarget.dataset.id
-		console.log(id)
-		this.onUpdateViews(id)
+        let id = e.currentTarget.dataset.id
+        console.log(id)
+        this.onUpdateViews(id)
         wx.vibrateShort()
         var imgArr = []
         imgArr.push(e.currentTarget.dataset.src)
@@ -359,9 +368,9 @@ Page({
         });
     },
     openAlert() {
-		wx.navigateTo({
-			url: '../search/search'
-		})
+        wx.navigateTo({
+            url: '../search/search'
+        })
     },
     onQuery: function() {
         const db = wx.cloud.database()
@@ -397,21 +406,21 @@ Page({
     onAdd: function(currSrc, time, author, column, title, photoArr) {
         let that = this
         const db = wx.cloud.database()
-        db.collection('wallapper').add({
+        db.collection('wallpaper').add({
             data: {
-                src: currSrc,
+                url: currSrc,
                 createdAt: time,
                 author: author,
                 column: column,
                 downloadUrl: "",
-                from: "bing",
+                from: "即刻APP",
                 title: title,
-                type: "bing",
+                type: "插画",
                 photoArr: photoArr
 
             },
             success: res => {
-                console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
+                console.log('[数据库] [新增chahua记录] 成功，记录 _id: ', res._id)
             },
             fail: err => {
                 console.error('[数据库] [新增记录] 失败：', err)
@@ -449,7 +458,7 @@ Page({
                     hotArr: res.data,
                     spinShow: false
                 })
-				console.log('[数据库] [查询热门记录] 成功: ', res)
+                console.log('[数据库] [查询热门记录] 成功: ', res)
 
             },
             fail: err => {
@@ -461,57 +470,176 @@ Page({
             }
         })
     },
-	queryNotice: function () {
-		let that = this
-		const db = wx.cloud.database()
-		db.collection('notice').where({ isDisplay:false}).limit(1).get({
-			success: res => {
-				console.log('[数据库] [查询公告记录] 成功: ', res)
-				that.setData({
-					notice: res.data[0].content + " By " + res.data[0].author + " ~ " + formatTime(res.data[0].createdAt),
-					spinShow: false
-				})
-			},
-			fail: err => {
-				wx.showToast({
-					icon: 'none',
-					title: '查询公告记录失败'
-				})
-				console.error('[数据库] [查询公告记录] 失败：', err)
-			}
-		})
-	},
-	onUpdateViews: function (id) {
-		const db = wx.cloud.database()
-		const _ = db.command
-		db.collection('wallpaper').doc(id).update({
-			data: {
-				views: _.inc(1)
-			},
-			success: res => {
-				console.info('[数据库] [更新记录] 成功：', res)
-			},
-			fail: err => {
-				icon: 'none',
-					console.error('[数据库] [更新记录] 失败：', err)
-			}
-		})
-	},
-	getRandom:function(){
-		let that = this
-		wx.request({
-			url: 'https://www.extrastu.xin/photos/random',
-			method: "post",
-			header: {
-				'content-type': 'application/json' // 默认值
-			},
-			success(res) {
-				// console.log(res)
-				that.setData({
-					randomSrc: res.data.urls.regular,
-					spinShow1:false
-				})
-			}
-		})
-	}
+    queryNotice: function() {
+        let that = this
+        const db = wx.cloud.database()
+        db.collection('notice').where({
+            isDisplay: false
+        }).limit(1).get({
+            success: res => {
+                console.log('[数据库] [查询公告记录] 成功: ', res)
+                that.setData({
+                    notice: res.data[0].content + " By " + res.data[0].author + " ~ " + formatTime(res.data[0].createdAt),
+                    spinShow: false
+                })
+            },
+            fail: err => {
+                wx.showToast({
+                    icon: 'none',
+                    title: '查询公告记录失败'
+                })
+                console.error('[数据库] [查询公告记录] 失败：', err)
+            }
+        })
+    },
+    onUpdateViews: function(id) {
+        const db = wx.cloud.database()
+        const _ = db.command
+        db.collection('wallpaper').doc(id).update({
+            data: {
+                views: _.inc(1)
+            },
+            success: res => {
+                console.info('[数据库] [更新记录] 成功：', res)
+            },
+            fail: err => {
+                icon: 'none',
+                console.error('[数据库] [更新记录] 失败：', err)
+            }
+        })
+    },
+    getRandom: function() {
+        let that = this
+        wx.request({
+            url: 'https://www.extrastu.xin/photos/random',
+            method: "post",
+            header: {
+                'content-type': 'application/json' // 默认值
+            },
+            success(res) {
+                // console.log(res)
+                that.setData({
+                    randomSrc: res.data.urls.regular,
+                    spinShow1: false
+                })
+            }
+        })
+    },
+    fetchCH: function(type) {
+        let that = this
+        const db = wx.cloud.database()
+        db.collection('wallpaper').where({
+            title: type.title
+        }).limit(12).get({
+            success: res => {
+                if (res.data.length > 0) {
+                    console.log('has existed', res.data)
+                } else {
+                    that.onAdd(type.url, new Date(), type.author, type.column, type.title, type.photoArr)
+                }
+            },
+            fail: err => {
+                wx.showToast({
+                    icon: 'none',
+                    title: '查询记录失败'
+                })
+                console.error('[数据库] [查询记录] 失败：', err)
+            }
+        })
+
+    },
+    getCH: function() {
+        let that = this
+        wx.request({
+            url: 'https://www.extrastu.xin/jike',
+            method: "post",
+            header: {
+                'content-type': 'application/json' // 默认值
+            },
+            success(res) {
+                that.fetchCH(res.data)
+            }
+        })
+    },
+    handleChangeScroll({
+        detail
+    }) {
+        this.setData({
+            current: detail.key,
+        });
+        if (detail.key == 'tab2') {
+            if (!this.isEnd) {
+                this.fetchDm();
+            }
+        }
+    },
+    getDM: function() {
+        let that = this
+        that.setData({
+            spinShow: true
+        });
+        wx.request({
+            url: 'https://www.extrastu.xin/dm',
+            method: "post",
+            header: {
+                'content-type': 'application/json' // 默认值
+            },
+            success(res) {
+                console.log(res.data, 'res')
+
+                that.setData({
+                    dmList: res.data,
+                    spinShow: false
+                })
+            }
+        })
+    },
+    fetchDm: function() {
+        let that = this
+        wx.request({
+            url: 'https://www.extrastu.xin/getDm',
+            method: "get",
+            header: {
+                'content-type': 'application/json' // 默认值
+            },
+            success(res) {
+                let arr1 = res.data[0]
+                let arr2 = res.data[1]
+                let arr3 = res.data[2]
+                let arr4 = res.data[3]
+                let arr5 = arr1.concat(arr2)
+                let arr6 = arr3.concat(arr4)
+                let arr = arr5.concat(arr6)
+				console.log(typeof (arr))
+				
+                // for (let a of arr) {
+                //     for(let c of a.urls){
+                // 		 c =  c.replace('"></picture>', '')
+				// 		 console.log(c)
+                // 	}
+                // }
+                
+
+                // that.setData({
+                //     dmList: arr,
+                //     isEnd: false
+                // })
+            }
+        })
+    },
+    //点击预览图片
+    previewDmImg: function(e) {
+        wx.vibrateShort()
+        var imgArr = []
+        imgArr.push(e.currentTarget.dataset.src)
+        wx.previewImage({
+            current: e.currentTarget.dataset.src, //当前图片地址
+            urls: imgArr, //所有要预览的图片的地址集合 数组形式
+            success: function(res) {},
+            fail: function(res) {},
+            complete: function(res) {}
+        })
+
+    }
+
 })

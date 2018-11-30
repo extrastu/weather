@@ -25,6 +25,10 @@ Page({
 			{
 				color: "#5cadff",
 				text: "淡蓝"
+			},
+			{
+				color:"#f3f3f3",
+				text:"粉白"
 			}
 		]
 	},

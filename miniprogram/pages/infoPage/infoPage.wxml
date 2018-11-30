@@ -2,7 +2,25 @@
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view style='margin-top: {{height}}px;'>
     <view class='imgCard'>
-        <image-loader default-image='../../images/zwt.png' mode='widthFix' original-image='{{imgObj.urls.regular}}' width="100%" data-src="{{imgObj.urls.regular}}" bindtap='checkImg' />
+
+        <!-- <image-loader default-image='../../images/zwt.png' mode='widthFix' original-image='{{imgObj.urls.regular}}' width="100%" data-src="{{imgObj.urls.regular}}" bindtap='checkImg' /> -->
+        <swiper style='height:{{imgObj.height/8}}rpx' indicator-dots    bindchange='showInfo'>
+            <swiper-item>
+                <image-loader default-image='../../images/zwt.png' mode='widthFix' original-image='{{imgObj.urls.regular}}' width="100%" data-src="{{imgObj.urls.regular}}" bindtap='checkImg' />
+            </swiper-item>
+            <swiper-item>
+                <image-loader default-image='../../images/zwt.png' mode='widthFix' original-image='{{imgObj.urls.full}}' width="100%" data-src="{{imgObj.urls.full}}" bindtap='checkImg' />
+            </swiper-item>
+            <swiper-item>
+                <image-loader default-image='../../images/zwt.png' mode='widthFix' original-image='{{imgObj.urls.raw}}' width="100%" data-src="{{imgObj.urls.raw}}" bindtap='checkImg' />
+            </swiper-item>
+            <swiper-item>
+                <image-loader default-image='../../images/zwt.png' mode='widthFix' original-image='{{imgObj.urls.small}}' width="100%" data-src="{{imgObj.urls.small}}" bindtap='checkImg' />
+            </swiper-item>
+            <swiper-item>
+                <image-loader default-image='../../images/zwt.png' mode='widthFix' original-image='{{imgObj.urls.thumb}}' width="100%" data-src="{{imgObj.urls.thumb}}" bindtap='checkImg' />
+            </swiper-item>
+        </swiper>
         <view class='imgInfo'>
             <i-row>
                 <i-col span="8" i-class="col-class">
@@ -23,6 +41,9 @@
             <i-button bind:click="handleClick" type="success" shape="circle" size="small"> By {{imgObj.user.name}}</i-button>
             <i-button bind:click="handleClick" type="info" shape="circle" size="small"> From Unsplash</i-button>
             <i-button bind:click="handleClick" type="ghost" shape="circle" size="small"> 点击图片下载</i-button>
+			  <i-button bind:click="handleClick" type="success" shape="circle" size="small"> 滑动切换图片画质</i-button>
         </view>
     </view>
 </view>
+<i-toast id="toast" />
+<i-message id="message" />

@@ -5,6 +5,8 @@
 		"image-loader": "/commpents/image-loader/pre-load",
 		"i-row": "../../dist/row/index",
 		"i-col": "../../dist/col/index",
-		"i-button": "../../dist/button/index"
+		"i-button": "../../dist/button/index",
+		"i-toast": "../../dist/toast/index",
+		"i-message": "../../dist/message/index"
 	}
 }
