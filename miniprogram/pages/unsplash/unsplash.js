@@ -194,5 +194,11 @@ Page({
 		this.setData({
 			current_scroll: detail.key
 		});
+	},
+	infoPage:function(e){
+		let id = e.target.dataset.id
+		wx.navigateTo({
+			url: '../infoPage/infoPage?id=' + id
+		})
 	}
 })
