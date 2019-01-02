@@ -61,11 +61,10 @@
   display: inline-block;
   width: 100px;
   height: 50px;
-  border-radius: 10px;
+  border-radius: 20px;
   text-align: center;
   line-height: 50px;
   margin: 10px 10px;
-  box-shadow: 2px 2px 2px 2px pink;
   overflow: hidden;
 }
 .Illustrations{

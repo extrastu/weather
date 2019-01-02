@@ -115,7 +115,7 @@
 
                     </view>
                 </view>
-                <i-load-more tip="每天更新40条~" loading="{{ isEnd }}" />
+                <i-load-more tip="每天更新10条~" loading="{{ isEnd }}" />
             </view>
         </view>
 

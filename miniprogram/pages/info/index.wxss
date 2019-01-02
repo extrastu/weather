@@ -109,9 +109,13 @@
 	bottom: 0px;
 	height: 40px;
 	width:100%;
-	color:#fff;
+	color:#222;
 	font-weight: 800;
 	line-height: 40px;
 	text-align: left;
 	padding-left: 15px;
+}
+
+.about{
+  border: 1px solid #000!important;
 }
