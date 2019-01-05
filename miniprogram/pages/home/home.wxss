@@ -97,4 +97,6 @@
 .hot{
 	width: 180px;
 	height: 330px;
+  border:1px solid pink;
+
 }

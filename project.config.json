@@ -2,12 +2,13 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
 		"nodeModules": true,
+		"autoAudits": false,
 		"uglifyFileName": false
 	},
 	"appid": "wx0480ec46ceac69b4",

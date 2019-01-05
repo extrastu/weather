@@ -2,128 +2,128 @@
 
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view class='home-page' style='margin-top: {{height}}px;'>
-    <!-- <view class='home-page'> -->
-    <view class="page__bd">
-        <i-notice-bar icon="systemprompt" loop closable wx:if='{{notice}}'>
-            {{notice}}
-        </i-notice-bar>
-        <view style='font-size:24px;font-weight:800;padding:20px;display:inline-block;'>
-            每图
-        </view>
-        <view style='width:90%;margin:20px auto;'>
-            <i-tabs current="{{ current }}" scroll bindchange="handleChangeScroll">
-                <i-tab key="tab1" title="流行风"></i-tab>
-                <i-tab key="tab2" title="动漫风"></i-tab>
-            </i-tabs>
-        </view>
-        <view wx:if='{{current =="tab1"}}'>
-            <view class='search' bindtap='openAlert'>
-                <view class='fa fa-search'>搜索</view>
-            </view>
-            <view style="padding:10px 20px;" bindtap='toList'>
-                <i-row>
-                    <i-col span="18" i-class="col-class">Explore</i-col>
-                    <i-col span="6" i-class="col-class" style='line-height:30px;text-align:right;'>All
-                        <view class='fa fa-th'></view>
-                    </i-col>
-                </i-row>
-            </view>
-            <view class='page__hd'>
-                <view class="section section_gap">
-                    <scroll-view class="scroll-view_H" scroll-x style="width: 100%;height:100%;" scroll-with-animation="true">
-                        <view class="scroll-view-item_H Illustrations" wx:for='{{exploreArr}}' wx:key="*this" bindtap='intoThis' data-type="{{item.title}}">
-                            <image src="{{item.bg}}" mode='aspectFill' style='width:100%;height:100%; border-radius:15px;overflow:hidden;'></image>
-                            <view class='v_info'>
-                                {{item.title}}
-                            </view>
-                        </view>
-                    </scroll-view>
-                </view>
-            </view>
-            <view style="font-size:20px;padding:10px 20px;">
-                Hot
-            </view>
-            <view class='page__hd'>
-                <view class="section section_gap">
-                    <scroll-view class="scroll-view_H" scroll-x style="width: 100%;height:100%;" scroll-with-animation="true">
-                        <view class="scroll-view-item_H Illustrations hot" wx:for='{{hotArr}}' data-src='{{item.url}}' wx:key="*this" bindtap='checkImg' data-views="{{item.views}}" data-id='{{item._id}}'>
-                            <image src="{{item.url}}" mode='aspectFill' style='width:100%;height:100%; border-radius:15px;overflow:hidden;'></image>
-                        </view>
-                    </scroll-view>
-                </view>
-            </view>
-            <view style="font-size:20px;padding:10px 20px;" wx:if='{{randomSrc}}'>
-                Random
-            </view>
-            <view class='spin-article' style='width:90%;margin:0 auto;height:115px;border-radius:20px;overflow:hidden;position:relative;' wx:if='{{randomSrc}}'>
-                <image src='{{randomSrc}}' mode='aspectFill' style='width:100%;height:100%;' data-src='{{randomSrc}}' bindtap='checkImg'></image>
-                <i-spin fix wx:if="{{ spinShow1 }}"></i-spin>
-            </view>
-            <view style="font-size:20px;padding:10px 20px;">
-                New
-            </view>
-            <view wx-if="{{style=='one'}}">
-                <block wx:for="{{ latests }}" wx:key="{{index}}" wx:for-item="photo" wx:for-index="idx">
-                    <view class='zhuanlan' wx:if='{{photo.type}}' data-id='{{photo._id}}' style='width:90%;margin:20px auto;border-radius: 10px;overflow:hidden;text-align:center;box-shadow:1px 1px 1px 1px pink;' bindtap='enterThisZL'>
-                        <image src='{{ photo.url}}' mode="widthFix" style='height:150px!important;width:100%;'></image>
-                        <view class='zhuanlan_info' style='padding:0 10px;overflow:hidden;font-size:14px;color:grey;'>
-                            <view style='text-align:left;float:left;'>
-                                <i-icon type="systemprompt" style='font-size:17px;margin-top:-5px;' />{{photo.column}}</view>
-                            <view style='text-align:right;float:right;'>
-                                <i-icon type="clock" style='font-size:17px;margin-top:-5px;' />{{photo.createdAt}}</view>
-                        </view>
-                        <view style='padding:10px;font-weight:800;font-size:16px;'>{{photo.title}}</view>
-                    </view>
-                    <view wx:else>
-                        <view class="photo" style='margin-bottom:1px;text-align:center;'>
-                            <image src="{{ photo.url}}" data-index="{{idx+1}}" mode="aspectFill" style='width:90%;margin: 0 auto; border-radius: 10px;height:300px;box-shadow:2px 2px 0 pink;' data-src="{{photo.url}}" bindtap='previewImg'></image>
-                        </view>
-                    </view>
-                </block>
-            </view>
-            <view wx-if="{{style=='tow'}}">
-                <view class="gallery ">
-                    <block wx:for="{{ latests }}" wx:key="{{index}}" wx:for-item="photo" wx:for-index="idx">
-                        <view class="item " style='text-align:center;'>
-                            <image src="{{ photo.url}}" mode="widthFix" data-src="{{photo.ur}}" bindtap='previewImg'></image>
-                        </view>
-                    </block>
-                </view>
-            </view>
-        </view>
-        <view wx:if='{{current =="tab2"}}'>
-            <view class='jingxuan'>
-                <view class='jingxuan_item' wx:for="{{dmList}}" wx:key="*this" style='border-radius:15px;box-shadow: 0px 0px  10px 5px #aaa;width:90%;margin:0 auto; margin-bottom:40px;overflow:hidden;margin-top:20px;'>
-                    <view class="page__bd">
-                        <view class="weui-grids">
-                            <block wx:for="{{item.urls}}" wx:key="*this">
-                                <image src="{{item}}" mode='aspectFill' style='height:130px;padding:0;' class="weui-grid" hover-class="weui-grid_active" data-src="{{item}}" bindtap='previewDmImg'></image>
-                            </block>
-                        </view>
-                        <view class="weui-cells weui-cells_after-title">
-                            <view class="weui-cell">
-                                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                                    <image src="{{item.avator}}" style="width: 50px; height: 50px; display: block;border-radius:25px;" />
-                                </view>
-                                <view class="weui-cell__bd">
-                                    <view>
-                                        <text style='color:grey;font-size:14px;'>来自用户</text> {{item.author}}</view>
-                                    <view style="font-size: 13px;color: #888888;">{{item.title}}</view>
-                                </view>
-                            </view>
-                        </view>
-
-                    </view>
-                </view>
-                <i-load-more tip="每天更新10条~" loading="{{ isEnd }}" />
-            </view>
-        </view>
-
-        <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
-
-        <view class='goTop' bindtap="goTop" wx:if="{{ floorstatus }}">
-            <image src='../../images/top.png'></image>
-        </view>
-        <i-toast id="toast" />
+  <!-- <view class='home-page'> -->
+  <view class="page__bd">
+    <i-notice-bar icon="systemprompt" loop closable wx:if='{{notice}}'>
+      {{notice}}
+    </i-notice-bar>
+    <view style='font-size:24px;font-weight:800;padding:20px;display:inline-block;'>
+      每图
     </view>
+    <view style='width:90%;margin:20px auto;'>
+      <i-tabs current="{{ current }}" scroll bindchange="handleChangeScroll">
+        <i-tab key="tab1" title="流行风"></i-tab>
+        <i-tab key="tab2" title="动漫风"></i-tab>
+      </i-tabs>
+    </view>
+    <view wx:if='{{current =="tab1"}}'>
+      <view class='search' bindtap='openAlert'>
+        <view class='fa fa-search'>搜索</view>
+      </view>
+      <view style="padding:10px 20px;" bindtap='toList'>
+        <i-row>
+          <i-col span="18" i-class="col-class">Explore</i-col>
+          <i-col span="6" i-class="col-class" style='line-height:30px;text-align:right;'>All
+            <view class='fa fa-th'></view>
+          </i-col>
+        </i-row>
+      </view>
+      <view class='page__hd'>
+        <view class="section section_gap">
+          <scroll-view class="scroll-view_H" scroll-x style="width: 100%;height:100%;" scroll-with-animation="true">
+            <view class="scroll-view-item_H Illustrations" wx:for='{{exploreArr}}' wx:key="*this" bindtap='intoThis' data-type="{{item.title}}">
+              <image src="{{item.bg}}" mode='aspectFill' style='width:100%;height:100%; border-radius:10px;overflow:hidden;'></image>
+              <view class='v_info'>
+                {{item.title}}
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+      <view style="font-size:20px;padding:10px 20px;">
+        Hot
+      </view>
+      <view class='page__hd'>
+        <view class="section section_gap">
+          <scroll-view class="scroll-view_H" scroll-x style="width: 100%;height:100%;" scroll-with-animation="true">
+            <view class="scroll-view-item_H Illustrations hot" wx:for='{{hotArr}}' data-src='{{item.url}}' wx:key="*this" bindtap='checkImg' data-views="{{item.views}}" data-id='{{item._id}}'>
+              <image src="{{item.url}}" mode='aspectFill' style='width:100%;height:100%; border-radius:15px;overflow:hidden;'></image>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+      <view style="font-size:20px;padding:10px 20px;" wx:if='{{randomSrc}}'>
+        Random
+      </view>
+      <view class='spin-article' style='width:90%;margin:0 auto;height:115px;border-radius:20px;overflow:hidden;position:relative;' wx:if='{{randomSrc}}'>
+        <image src='{{randomSrc}}' mode='aspectFill' style='width:100%;height:100%;' data-src='{{randomSrc}}' bindtap='checkImg'></image>
+        <i-spin fix wx:if="{{ spinShow1 }}"></i-spin>
+      </view>
+      <view style="font-size:20px;padding:10px 20px;">
+        New
+      </view>
+      <view wx-if="{{style=='one'}}">
+        <block wx:for="{{ latests }}" wx:key="{{index}}" wx:for-item="photo" wx:for-index="idx">
+          <view class='zhuanlan' wx:if='{{photo.type}}' data-id='{{photo._id}}' style='width:90%;margin:20px auto;border-radius: 10px;overflow:hidden;text-align:center;box-shadow:1px 1px 1px 1px pink;' bindtap='enterThisZL'>
+            <image src='{{ photo.url}}' mode="widthFix" style='height:150px!important;width:100%;'></image>
+            <view class='zhuanlan_info' style='padding:0 10px;overflow:hidden;font-size:14px;color:grey;'>
+              <view style='text-align:left;float:left;'>
+                <i-icon type="systemprompt" style='font-size:17px;margin-top:-5px;' />{{photo.column}}</view>
+              <view style='text-align:right;float:right;'>
+                <i-icon type="clock" style='font-size:17px;margin-top:-5px;' />{{photo.createdAt}}</view>
+            </view>
+            <view style='padding:10px;font-weight:800;font-size:16px;'>{{photo.title}}</view>
+          </view>
+          <view wx:else>
+            <view class="photo" style='margin-bottom:1px;text-align:center;'>
+              <image src="{{ photo.url}}" data-index="{{idx+1}}" data-views="{{photo.views}}" mode="aspectFill" style='width:90%;margin: 0 auto; border-radius: 10px;height:300px;box-shadow:2px 2px 0 pink;' data-src="{{photo.url}}" bindtap='previewImg'></image>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view wx-if="{{style=='tow'}}">
+        <view class="gallery ">
+          <block wx:for="{{ latests }}" wx:key="{{index}}" wx:for-item="photo" wx:for-index="idx">
+            <view class="item " style='text-align:center;'>
+              <image src="{{ photo.url}}" mode="widthFix" data-src="{{photo.ur}}" bindtap='previewImg'></image>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view wx:if='{{current =="tab2"}}'>
+      <view class='jingxuan'>
+        <view class='jingxuan_item' wx:for="{{dmList}}" wx:key="*this" style='border-radius:15px;box-shadow: 0px 0px  10px 5px #aaa;width:90%;margin:0 auto; margin-bottom:40px;overflow:hidden;margin-top:20px;'>
+          <view class="page__bd">
+            <view class="weui-grids">
+              <block wx:for="{{item.urls}}" wx:key="*this">
+                <image src="{{item}}" mode='aspectFill' style='height:130px;padding:0;' class="weui-grid" hover-class="weui-grid_active" data-src="{{item}}" bindtap='previewDmImg'></image>
+              </block>
+            </view>
+            <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell">
+                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                  <image src="{{item.avator}}" style="width: 50px; height: 50px; display: block;border-radius:25px;" />
+                </view>
+                <view class="weui-cell__bd">
+                  <view>
+                    <text style='color:grey;font-size:14px;'>来自用户</text> {{item.author}}</view>
+                  <view style="font-size: 13px;color: #888888;">{{item.title}}</view>
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+        <i-load-more tip="每天更新10条~" loading="{{ isEnd }}" />
+      </view>
+    </view>
+
+    <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+
+    <view class='goTop' bindtap="goTop" wx:if="{{ floorstatus }}">
+      <image src='../../images/top.png'></image>
+    </view>
+    <i-toast id="toast" />
+  </view>
 </view>

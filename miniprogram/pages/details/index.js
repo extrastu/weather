@@ -150,7 +150,7 @@ Page({
 		const _ = db.command
 		db.collection('wallpaper').doc(id).update({
 			data: {
-				views: _.inc(1)
+				views: _.inc(10)
 			},
 			success: res => {
 				console.info('[数据库] [更新记录] 成功：', res)

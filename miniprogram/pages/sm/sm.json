@@ -3,6 +3,9 @@
 	"usingComponents": {
 		"nav-bar": "/commpents/navBar/navBar",
 		"i-toast": "../../dist/toast/index",
-		"i-spin": "../../dist/spin/index"
+		"i-spin": "../../dist/spin/index",
+    "i-button": "../../dist/button/index",
+    "i-radio-group": "../../dist/radio-group/index",
+    "i-radio": "../../dist/radio/index"
 	}
 }

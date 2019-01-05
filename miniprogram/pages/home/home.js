@@ -262,7 +262,7 @@ Page({
         page: page1
       },
       complete: res => {
-        // console.log('云端函数返回数据',res.result.data)
+        console.log('云端函数返回数据',res)
         if (callback) {
           callback(res.result.data);
         }
