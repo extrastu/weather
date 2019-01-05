@@ -201,7 +201,8 @@ Page({
         author: author1,
         des: des1,
         createdAt: new Date(),
-        url: id
+        url: id,
+        downloadURL: id
       },
       success: res => {
         // 在返回结果中会包含新创建的记录的 _id
@@ -226,5 +227,5 @@ Page({
       current: detail.value
     });
   }
-
+  
 })
