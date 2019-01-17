@@ -1,0 +1,40 @@
+<!--pages/UpdateWallpaper/index.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class="page" style='margin-top: {{height}}px;height:{{dh-height*2}}px;'>
+  <view class="page__bd">
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__hd">
+              <view class="weui-uploader__title">图片上传</view>
+              <view class="weui-uploader__info">{{files.length}}/2</view>
+            </view>
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <view class="weui-uploader__file" wx:if='{{url}}' bindtap="previewImage" id="{{url}}">
+                  <image class="weui-uploader__img" src="{{url}}" mode="aspectFill" />
+                </view>
+                <block wx:for="{{files}}" wx:key="*this">
+                  <view class="weui-uploader__file">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill"  bindtap="previewImage" id="{{item}}" />
+                    <view class="q-image-remover" data-idx="{{index}}" bindtap="removeImage">删除</view>
+                  </view>
+                </block>
+              </view>
+              <view class="weui-uploader__input-box">
+                <view class="weui-uploader__input" bindtap="uploadImage"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <i-panel title="主题">
+      <i-input value="{{ title }}" type="textarea" right title="标题" mode="wrapped" placeholder="请输入标题" bindchange='handleTitleChange' />
+    </i-panel>
+    <i-button bind:click="updateToUser" type="success" shape="circle">更新到{{current}}</i-button>
+    <i-button bind:click="reset" type="warning" shape="circle"  size="small">重置</i-button>
+    <i-button bind:click="set" type="ghost" shape="circle" size="small">设置为封面</i-button>
+  </view>
+</view>

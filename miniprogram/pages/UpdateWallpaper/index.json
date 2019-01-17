@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "nav-bar": "/commpents/navBar/navBar",
+    "i-input": "../../dist/input/index",
+    "i-button": "../../dist/button/index",
+    "i-tag": "../../dist/tag/index"
+  }
+}

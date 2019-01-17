@@ -1,33 +1,65 @@
 {
-	"cloud": true,
-	"pages": [
-		"pages/home/home",
-		"pages/details/index",
-		"pages/update/update",
-		"pages/list/list",
-		"pages/set/set",
-		"pages/skin/skin",
-		"pages/permission/permission",
-		"pages/use/use",
-		"pages/feedback/feedback",
-		"pages/updateRecord/index",
-		"pages/link/link",
-		"pages/sm/sm",
-		"pages/sendMessage/sendMessage",
-		"pages/search/search",
-		"pages/infoPage/infoPage",
-		"pages/searchRes/searchRes",
-		"pages/unsplash/unsplash"
-	],
-	"window": {
-		"backgroundColor": "#F6F6F6",
-		"backgroundTextStyle": "light",
-		"navigationBarBackgroundColor": "#F6F6F6",
-		"navigationBarTitleText": "每图",
-		"navigationBarTextStyle": "black",
-		"navigationStyle": "custom"
-	},
-	"navigateToMiniProgramAppIdList": [
-		"wx4972a5340f1d2283"
-	]
+  "cloud": true,
+  "pages": [
+    "pages/home/home",
+    "pages/details/index",
+    "pages/update/update",
+    "pages/list/list",
+    "pages/set/set",
+    "pages/skin/skin",
+    "pages/permission/permission",
+    "pages/use/use",
+    "pages/feedback/feedback",
+    "pages/updateRecord/index",
+    "pages/link/link",
+    "pages/sm/sm",
+    "pages/sendMessage/sendMessage",
+    "pages/search/search",
+    "pages/infoPage/infoPage",
+    "pages/searchRes/searchRes",
+    "pages/unsplash/unsplash",
+    "pages/UpdateWallpaper/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "每图",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx4972a5340f1d2283"
+  ],
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "./images/icon-tab/today.png",
+        "iconPath": "./images/icon-tab/today-un.png",
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "./images/icon-tab/found.png",
+        "iconPath": "./images/icon-tab/found-un.png",
+        "pagePath": "pages/search/search",
+        "text": "发现"
+      },
+      {
+        "selectedIconPath": "./images/icon-tab/home.png",
+        "iconPath": "./images/icon-tab/home-un.png",
+        "pagePath": "pages/UpdateWallpaper/index",
+        "text": "更新"
+      },
+      {
+        "selectedIconPath": "./images/icon-tab/set.png",
+        "iconPath": "./images/icon-tab/set-un.png",
+        "pagePath": "pages/set/set",
+        "text": "设置"
+      }
+    ]
+  }
 }

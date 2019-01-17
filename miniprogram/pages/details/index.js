@@ -105,7 +105,6 @@ Page({
     // console.log(e.detail.current)
     let index = e.detail.current + 1
     var imgArr = that.data.srcArr
-
     that.setData({
       currentNum: e.detail.current + 1,
       downloadURL: imgArr[e.detail.current].url

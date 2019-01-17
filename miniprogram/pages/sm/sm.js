@@ -29,7 +29,23 @@ Page({
       id: 2,
       name: 'feature'
     }],
+    kuarr: [{
+      id: 1,
+      name: 'sogou'
+    }, {
+      id: 2,
+      name: 'weibo'
+    }, {
+      id: 3,
+      name: "baidu"
+    }, {
+      id: 5,
+      name: "qq"
+    }],
+    ku: 'weibo',
     current: 'wallpaper',
+    value: "",
+    wallpaperList:[]
   },
 
   /**
@@ -109,7 +125,7 @@ Page({
                 "content-type": "application/x-www-form-urlencoded"
               },
               data: {
-                code: "weibo",
+                code: that.data.ku,
                 img: base64Url,
                 uid: 'A5255D37E4D640528D450BA2D716E490'
               },
@@ -118,7 +134,8 @@ Page({
                 that.setData({
                   spinShow: false,
                   imgPath: res.data.data,
-                  isShow: true
+                  isShow: true,
+                  wallpaperList:that.data.wallpaperList.push(res.data.data)
                 })
                 wx.setClipboardData({
                   data: res.data.data,
@@ -190,7 +207,8 @@ Page({
     }
   },
   updateToUser() {
-    this.doAdd(this.data.current, 'extrastu', 'extrastu', '精选壁纸', this.data.imgPath)
+     this.doAdd(this.data.current, 'extrastu', 'extrastu', '精选壁纸', this.data.imgPath)
+    //that.onAdd(this.data.current, new Date(), this.data.value, this.data.wallpaperList)
   },
   doAdd: function(dbName, tag1, author1, des1, id) {
     let that = this;
@@ -226,6 +244,46 @@ Page({
     this.setData({
       current: detail.value
     });
+  },
+  handlekuChange({
+    detail = {}
+  }) {
+    console.log(detail.value)
+    this.setData({
+      ku: detail.value
+    });
+  },
+  handleTitleChange({
+    detail = {}
+  }) {
+    console.log(detail.detail.value)
+    this.setData({
+      value: detail.detail.value
+    });
+  },
+  // 添加专栏数据
+  onAdd: function (currSrc, time,  title, photoArr) {
+    let that = this
+    const db = wx.cloud.database()
+    db.collection('wallpaper').add({
+      data: {
+        url: currSrc,
+        createdAt: time,
+        author: 'extrastu',
+        column: '益达推荐',
+        downloadUrl: "",
+        from: "extrastu",
+        title: title,
+        type: "益达推荐",
+        photoArr: photoArr
+
+      },
+      success: res => {
+        console.log('[数据库] [新增chahua记录] 成功，记录 _id: ', res._id)
+      },
+      fail: err => {
+        console.error('[数据库] [新增记录] 失败：', err)
+      }
+    })
   }
-  
 })

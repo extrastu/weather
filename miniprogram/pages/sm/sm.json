@@ -6,6 +6,7 @@
 		"i-spin": "../../dist/spin/index",
     "i-button": "../../dist/button/index",
     "i-radio-group": "../../dist/radio-group/index",
-    "i-radio": "../../dist/radio/index"
+    "i-radio": "../../dist/radio/index",
+    "i-input": "../../dist/input/index"
 	}
 }

@@ -1,6 +1,6 @@
 <!--pages/update/update.wxml-->
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
-<view class='page' style='margin-top: {{height}}px;'>
+<view class='page'  style='margin-top: {{height}}px;height:{{dh-height*2}}px;'>
     <view wx-if="{{isShow}}">
         <!-- <i-panel title="信息">
             <i-input value="{{ tag }}" title="标签" autofocus placeholder="请输入图片标签" />

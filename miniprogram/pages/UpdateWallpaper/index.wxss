@@ -1,0 +1,9 @@
+/* pages/UpdateWallpaper/index.wxss */
+.q-image-remover{
+  text-align: center;
+  border: 1px solid pink;
+  border-radius: 2px;
+  padding: 2px;
+  background: #fff;
+  color: #000;
+}

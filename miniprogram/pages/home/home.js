@@ -100,12 +100,13 @@ Page({
     current: 'tab1',
     dmList: [],
     isEnd: true,
+    bingUrl:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     let that = this
     let h = app.globalData.dh - 200
     wx.vibrateShort()
@@ -152,40 +153,40 @@ Page({
         }
       }
     })
+   
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     wx.vibrateShort()
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     wx.vibrateShort()
     let that = this
     that.setData({
@@ -216,7 +217,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
     wx.vibrateShort()
     wx.showLoading()
     let currentPage = this.data.page + 1
@@ -242,11 +243,11 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
   // 点击切换展示形式
-  changeStyle: function(e) {
+  changeStyle: function (e) {
     wx.vibrateShort()
     this.setData({
       style: e.currentTarget.dataset.style
@@ -262,7 +263,7 @@ Page({
         page: page1
       },
       complete: res => {
-        console.log('云端函数返回数据',res)
+        console.log('云端函数返回数据', res)
         if (callback) {
           callback(res.result.data);
         }
@@ -270,7 +271,7 @@ Page({
     })
   },
   //返回顶部
-  goTop: function(e) {
+  goTop: function (e) {
     wx.vibrateShort()
     if (wx.pageScrollTo) {
       wx.pageScrollTo({
@@ -296,7 +297,7 @@ Page({
     })
   },
   // 获取滚动条当前位置
-  onPageScroll: function(e) {
+  onPageScroll: function (e) {
     if (e.scrollTop > 100) {
       this.setData({
         floorstatus: true,
@@ -306,6 +307,9 @@ Page({
           isBackShow: "true"
         }
       });
+      wx.hideTabBar({
+        "animation": true
+      })
     } else {
       this.setData({
         floorstatus: false,
@@ -315,10 +319,13 @@ Page({
           isBackShow: "true"
         }
       });
+      wx.showTabBar({
+        "animation": true
+      })
     }
   },
   //点击预览图片
-  checkImg: function(e) {
+  checkImg: function (e) {
     let id = e.currentTarget.dataset.id
     console.log(id)
     this.onUpdateViews(id)
@@ -328,13 +335,13 @@ Page({
     wx.previewImage({
       current: e.currentTarget.dataset.src, //当前图片地址
       urls: imgArr, //所有要预览的图片的地址集合 数组形式
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {}
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {}
     })
 
   },
-  previewImg: function(e) {
+  previewImg: function (e) {
     wx.vibrateShort()
 
     let idx = e.currentTarget.dataset.index
@@ -369,7 +376,7 @@ Page({
       url: '../search/search'
     })
   },
-  onQuery: function() {
+  onQuery: function () {
     const db = wx.cloud.database()
     db.collection('tabList').where({}).limit(12).orderBy('_id', 'desc').get({
       success: res => {
@@ -400,7 +407,7 @@ Page({
     })
   },
   // 添加一条数据
-  onAdd: function(currSrc, time, author, column, title, photoArr) {
+  onAdd: function (currSrc, time, author, column, title, photoArr) {
     let that = this
     const db = wx.cloud.database()
     db.collection('wallpaper').add({
@@ -444,7 +451,7 @@ Page({
     console.log(dateDiff + "时间差的毫秒数", dayDiff + "计算出相差天数", leave1 + "计算天数后剩余的毫秒数", hours + "计算出小时数", minutes + "计算相差分钟数", seconds + "计算相差秒数");
   },
   // 获取热门数据
-  fetchHot: function() {
+  fetchHot: function () {
     const db = wx.cloud.database()
     const _ = db.command
     db.collection('wallpaper').where({
@@ -467,7 +474,7 @@ Page({
       }
     })
   },
-  queryNotice: function() {
+  queryNotice: function () {
     let that = this
     const db = wx.cloud.database()
     db.collection('notice').where({
@@ -489,7 +496,7 @@ Page({
       }
     })
   },
-  onUpdateViews: function(id) {
+  onUpdateViews: function (id) {
     const db = wx.cloud.database()
     const _ = db.command
     db.collection('wallpaper').doc(id).update({
@@ -505,7 +512,7 @@ Page({
       }
     })
   },
-  getRandom: function() {
+  getRandom: function () {
     let that = this
     wx.request({
       url: 'https://www.extrastu.xin/photos/random',
@@ -522,7 +529,7 @@ Page({
       }
     })
   },
-  fetchCH: function(type) {
+  fetchCH: function (type) {
     let that = this
     const db = wx.cloud.database()
     db.collection('wallpaper').where({
@@ -545,7 +552,7 @@ Page({
     })
 
   },
-  getCH: function() {
+  getCH: function () {
     let that = this
     wx.request({
       url: 'https://www.extrastu.xin/jike',
@@ -568,9 +575,11 @@ Page({
       if (!this.isEnd) {
         this.fetchDm();
       }
+    }else if(detail.key == 'tab3'){
+      this.getBing()
     }
   },
-  getDM: function() {
+  getDM: function () {
     let that = this
     that.setData({
       spinShow: true
@@ -591,7 +600,7 @@ Page({
       }
     })
   },
-  fetchDm: function() {
+  fetchDm: function () {
     let that = this
     wx.request({
       url: 'https://www.extrastu.xin/dm',
@@ -608,20 +617,20 @@ Page({
     })
   },
   //点击预览图片
-  previewDmImg: function(e) {
+  previewDmImg: function (e) {
     wx.vibrateShort()
     var imgArr = []
     imgArr.push(e.currentTarget.dataset.src)
     wx.previewImage({
       current: e.currentTarget.dataset.src, //当前图片地址
       urls: imgArr, //所有要预览的图片的地址集合 数组形式
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {}
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {}
     })
 
   },
-  fetchQt: function() {
+  fetchQt: function () {
     let that = this
     wx.request({
       url: 'https://www.extrastu.xin/qingtoujun',
@@ -632,6 +641,21 @@ Page({
       success(res) {
         console.log(res.data)
         // that.fetchCH(res.data)
+      }
+    })
+  },
+  //获取每日bing美图
+  getBing(){
+    wx.vrequest({
+      url: 'https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN',
+      success: ret => {
+        console.log(JSON.parse(ret.data));
+        var res = JSON.parse(ret.data)
+        var bingUrl = 'https://cn.bing.com/' +res.images[0].url;
+        this.setData({
+          bingUrl:bingUrl
+        })
+        console.log(bingUrl)
       }
     })
   }

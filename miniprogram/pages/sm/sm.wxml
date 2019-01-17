@@ -2,9 +2,17 @@
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view style='margin-top: {{height}}px;background:#2b85e4;height:{{dh}}px;'>
   <view class="weui-flex__item">
-    <text class='title'>图床</text>
-    <view class="section section_gap" style='text-align:center;margin-top:30%;'>
-      <view style='text-align:center;color:#fff;font-size:18px;'>图床</view>
+    <text class='title'>选择{{ku}}图床</text>
+    <view style='width:90%;margin:0 auto;border:1px dotted #fff;background:#2b85e4;padding:10px;border-radius:10px;overflow:hidden;'>
+      <i-panel title="图床list">
+        <i-radio-group current="{{ku}}" bindchange="handlekuChange">
+          <i-radio wx:for="{{kuarr}}" color='#2b85e4' position="right" wx:key="{{item.id}}" value="{{item.name}}">
+          </i-radio>
+        </i-radio-group>
+      </i-panel>
+      
+    </view>
+    <view class="section section_gap" style='text-align:center;margin-top:10%;'>
       <image src='../../images/upload.png' style='width:100px;height100px;margin:30px 0;' mode='widthFix' bindtap='selectImg'></image>
       <view style='width:90%;margin:0 auto;color:#fff;margin-top:30px;white-space:normal;border:1px dotted #fff;padding:10px;border-radius:10px;overflow:hidden;' data-link='{{imgPath}}' bindtap='doCopy'>{{imgPath}}</view>
       <view wx:if='{{isShow && isAdmin}}' style='width:90%;margin:0 auto;border:1px dotted #fff;background:#2b85e4;padding:10px;border-radius:10px;overflow:hidden;'>
