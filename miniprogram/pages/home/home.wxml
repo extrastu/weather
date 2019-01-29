@@ -5,16 +5,10 @@
   <view class="page__bd">
     <i-notice-bar icon="systemprompt" loop closable wx:if='{{notice}}'>{{notice}}</i-notice-bar>
     <view style='font-size:24px;font-weight:800;padding:20px;display:inline-block;'>每图</view>
-    <view style='width:90%;margin:20px auto;'>
-      <i-tabs current="{{ current }}" bindchange="handleChangeScroll">
-        <i-tab key="tab1" title="流行风"></i-tab>
-        <i-tab key="tab2" title="动漫风"></i-tab>
-      </i-tabs>
-    </view>
     <view wx:if='{{current =="tab1"}}'>
-      <view class='search' bindtap='openAlert'>
+      <!-- <view class='search' bindtap='openAlert'>
         <view class='fa fa-search'>搜索</view>
-      </view>
+      </view> -->
       <view style="padding:10px 20px;" bindtap='toList'>
         <i-row>
           <i-col span="18" i-class="col-class" style='font-weight:800;'>发现</i-col>

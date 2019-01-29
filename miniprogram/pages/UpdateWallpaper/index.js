@@ -66,12 +66,12 @@ Page({
     });
   },
   // 添加专栏数据
-  onAdd: function(title, photoArr) {
+  onAdd: function(url, title, photoArr) {
     let that = this
     const db = wx.cloud.database()
     db.collection('wallpaper').add({
       data: {
-        url: photoArr[0],
+        url: url,
         createdAt: new Date(),
         author: 'extrastu',
         column: '益达推荐',
@@ -101,7 +101,7 @@ Page({
   updateToUser() {
     wx.vibrateShort();
     if (this.data.title != null && this.data.files.length != 0) {
-      this.onAdd(this.data.title, this.data.files)
+      this.onAdd(this.data.url, this.data.title, this.data.files)
     } else {
       wx.showToast({
         icon: 'none',
@@ -174,13 +174,13 @@ Page({
       files: array
     })
   },
-  uploadImage: function () {
+  uploadImage: function() {
     var that = this;
     wx.chooseImage({
       count: 1, //最多可以选择的图片总数
       sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
+      success: function(res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths;
         //启动上传等待中...
@@ -199,16 +199,16 @@ Page({
           header: {
             "Content-Type": "multipart/form-data"
           },
-          success: function (res) {
+          success: function(res) {
             console.log(res);
           },
-          fail: function (res) {
+          fail: function(res) {
             wx.hideToast();
             wx.showModal({
               title: '错误提示',
               content: '上传图片失败',
               showCancel: false,
-              success: function (res) { }
+              success: function(res) {}
             })
           }
         });

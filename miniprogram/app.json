@@ -18,7 +18,8 @@
     "pages/infoPage/infoPage",
     "pages/searchRes/searchRes",
     "pages/unsplash/unsplash",
-    "pages/UpdateWallpaper/index"
+    "pages/UpdateWallpaper/index",
+    "pages/infinitynewtab/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -47,6 +48,12 @@
         "iconPath": "./images/icon-tab/found-un.png",
         "pagePath": "pages/search/search",
         "text": "发现"
+      },
+      {
+        "selectedIconPath": "./images/icon-tab/infinity.png",
+        "iconPath": "./images/icon-tab/infinity-un.png",
+        "pagePath": "pages/infinitynewtab/index",
+        "text": "infinity"
       },
       {
         "selectedIconPath": "./images/icon-tab/home.png",

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "nav-bar": "/commpents/navBar/navBar",
+    "i-tabs": "../../dist/tabs/index",
+    "i-tab": "../../dist/tab/index"
+  }
+}
